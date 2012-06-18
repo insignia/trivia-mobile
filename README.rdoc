@@ -16,8 +16,8 @@ Este proceso agregará un nuevo comando, con 3 funciones útiles:
 
 - Iniciar el servidor de middleman:
 En la consola escribir:
-+codigo $ cd trivia-mobile + (Ir al directorio trivia-mobile)
-+codigo $ trivia-mobile > middleman server –p 4567 +
++codigo+ $ cd trivia-mobile  (Ir al directorio trivia-mobile)
++codigo+ $ trivia-mobile > middleman server –p 4567 
 
 - Abrir el navegador e ir a localhost/4567 para vizualizar la app.
 
