@@ -1,0 +1,167 @@
+<section data-role="page" id="page1" data-theme="c">
+    <script type="text/javascript" src = "js/jquery.parse.js"></script>
+    <script type="text/javascript" src = "js/formulario.js"></script>
+    <div data-theme="a" data-role="header">
+        <h3>
+            Trivia Mobile
+        </h3>
+    </div>
+    <div data-role="content" align="center" data-theme="c">
+        <div class="ui-grid-a" border="">
+            <div class="ui-block-a">
+                <div style="border-color: #d0cfce;border-style: solid;border-width: 2px;width:280px;height:181px">
+                    <img style="width:280px" src="../images/logo.jpg"/>
+                </div>
+            </div>
+        </div>        
+        <div data-role="" data-theme="">
+            <p style="font-weight:bold" align="left">Mientras que visitas la muestra, te invitamos a participar de un pequeño juego...</p>
+            <p style="font-weight:bold" align="left">Sólo tienes que responder las preguntas y registrar tu puntaje. Deberás prestar mucha atención si quieres ganar.</p>
+            <a id="btn_pregunta" data-role="button" data-transition="none" data-theme="a" href="#cartel">
+                Iniciar Cuestionario
+            </a>
+        </div>
+    </div>
+    <div data-theme="c">
+        <div data-theme="a" data-role="footer" align="center" >
+            <a href="http://www.insignia4u.com" data-role="none">
+                <img align="center" style="width:80px; height: 20px" src="../images/insignia.png"/></img>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="cartel" data-role="page">
+    <script type="text/javascript" src="js/backbone/underscore131.js"></script>
+    <script type="text/javascript" src="js/backbone/backbone090.js"></script>
+    <script type="text/javascript" src="js/trivia.js"></script>
+    <div id="header_con_botones" data-theme="a" data-role="header">
+        <h3>
+            Trivia Mobile
+        </h3>
+    </div>
+    <div id="header_sin_botones" data-theme="a" data-role="header">
+        <h3>
+            Trivia Mobile
+        </h3>
+    </div>
+    <div data-role="content" data-theme="c">
+        <div>
+            <!-- Lugar para la pregunta-->
+        <div id="contenido" align="center"></div>
+        <div id="" data-theme="" data-role="content" class="ui-grid-b" align="center">
+            <div class="ui-block-a"><small><a id="btn_anterior" data-role="button" data-transition="none" href="#cartel" data-theme="a">&lt;</a></small>
+            </div>
+            <div class="ui-block-c">
+                <div id="puntaje" align="center" style="font-weight:bold;font-style:italic;color:#FFFFF;font-size:18px;font-family:arial black,sans-serif;line-height:2.5;"></div>
+            </div>
+            <div class="ui-block-b"><small><a id="btn_siguiente" data-role="button" data-transition="none" href="#cartel" data-theme="a">&gt;</a></small>
+            </div>
+        </div>
+        <div id="loading" align="center"><img src="css/images/ajax-loader.gif"></div>
+        <div id="mensaje_error" data-role="content" class="ui-bar ui-grid-b" align="center">
+            <div class="ui-block-a" align="center">
+                <img id="" src="../images/incorrecto.png" width="40" height="40">
+            </div>
+            <div class="ui-block-b" align="" style="font-weight:bold;line-height:1.5;font-size:17px">
+                <p>Oops!</p>
+            </div>
+            <br><br><br>
+            <p style="font-weight:bold;line-height:1.5;font-size:15px">No es la respuesta correcta. Intenta nuevamente!</p>
+        </div>
+        <div id="mensaje_correcto" data-role="content" class="ui-bar ui-grid-b" align="center">
+            <div class="ui-block-a" align="center">
+                <img id="" src="../images/correcto.png" width="40" height="40">
+            </div>
+            <div class="ui-block-b" align="" style="font-weight:bold;line-height:1.5;font-size:17px">
+                <p>Bien hecho!</p>
+            </div>
+            <br><br><br><br>
+            <p style="font-weight:bold;line-height:1.5;font-size:15px">Has respondido correctamente ésta pregunta.</p>
+        </div>
+        <div id="radio_opciones">
+            <form id="respuestas" name="respuestas" data-role="listview" data-inset="true" align="center">
+                <!-- Lugar para las opciones de la pregunta -->
+            </form> 
+        </div>
+        <div id="div_responder"><a href="#cartel" id="btn_responder" data-theme="a" data-role="button" data-transition="none" align="center">
+            Responder
+        </a></div>
+    </div>
+    <div data-theme="c">
+        <div data-theme="a" data-role="footer" align="center">
+            <a href="http://www.insignia4u.com" data-role="none">
+                <img align="center" style="width:80px; height: 20px" src="../images/insignia.png"/></img>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section data-role="page" id="registrar_puntaje" data-theme="c">
+    <script type="text/javascript" src="js/backbone/underscore131.js"></script>
+    <script type="text/javascript" src="js/backbone/backbone090.js"></script>
+    <script type="text/javascript" src="js/vista_puntaje.js"></script>
+    <article>
+        <div data-theme="a" data-role="header">
+            <h3>
+                Trivia Mobile
+            </h3>
+        </div>
+    </article>
+    <article id="" align="center" data-role="" data-theme="">
+        <div data-role="content" data-theme="c">
+            <div style="font-weight:bold">
+                <p>Muy bien, has completado todo el cuestionario!</p>
+                <p>Si lo deseas, puedes registrar tu puntaje y participar de interesantes premios.</p>
+            </div>
+            <div data-role="controlgroup" data-type="horizontal" align="center"> 
+                <label for="user">Nombre</label>
+                <input id="user" align="center" value=""/>
+            </div>
+            <div data-role="controlgroup" data-type="horizontal" align="center"> 
+                <label for="mail">Mail</label>
+                <input id="mail" align="center" value=""/>
+            </div>
+            <div align="center">
+                <br>
+                <a href="#" id="btn_registrar" data-theme="a" data-role="button" align="center">Registrar</a>
+                <div style="font-weight:bold">
+                    <p>¿Te gustaria conocer a los que respondieron el cuestionario con el mayor puntaje?, puedes visitar nuestra Tabla de Posiciones</p>
+                </div>
+                <a href="#lista_puntajes" id="btn_lista_puntajes" data-theme="a" data-role="button" align="center">Tabla de posiciones</a>
+            </div>
+        </div>
+        <div data-theme="a" data-role="footer" align="center">
+            <a href="http://www.insignia4u.com" data-role="none">
+                <img align="center" style="width:80px; height: 20px" src="../images/insignia.png"/></img>
+            </a>
+        </div>
+    </article>
+</section>
+
+<!-- Tabla de puntajes-->
+<section data-role="page" id="lista_puntajes" data-theme="c">
+    <article>
+        <div data-theme="a" data-role="header">
+            <h3>
+                Trivia Mobile
+            </h3>
+        </div>
+        <article data-role="" data-theme="c">
+            <div data-role="content" align="center" data-theme="c">
+                <div align="center" style="font-weight:bold;font-style:italic;color:#FFFFF;font-size:20px;font-family:arial black,sans-serif;line-height:1.5;">Top 10 posiciones</div>
+                <ul id="lista_puntos" data-role="listview" data-inset="true" align="center"></ul>
+            </div>
+            <div data-role="content" align="center" data-theme="c">
+                <p style="font-weight:bold">¿No estás entre los líderes? ¿Por qué no pruebas de nuevo?</p>
+                <a href="" id="btn_terminar" data-theme="a" data-role="button" align="center">Ir al Comienzo</a>
+            </div>
+            <div data-theme="a" data-role="footer" align="center">
+                <a href="http://www.insignia4u.com" data-role="none">
+                    <img align="center" style="width:80px; height: 20px" src="../images/insignia.png"/></img>
+                </a>
+            </div>
+        </article>
+    </article>
+</section>
+
