@@ -23,4 +23,4 @@ cd trivia-mobile (Ir al directorio trivia-mobile)
 trivia-mobile > middleman server –p 4567 
 </code></pre>
 
-3) Abrir el navegador e ir a localhost/4567 para vizualizar la app.
+3) Abrir el navegador y escribir la dirección localhost:4567 para vizualizar la app.
