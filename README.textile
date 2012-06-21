@@ -1,7 +1,7 @@
 h1. App trivia-mobile http://trivia-mobile.herokuapp.com/
 
 h3. Los requisitos previos: 
-* *Debe tener instalado ruby 1.87 -p 352 y rails 2.3*
+* *Debe tener instalado ruby 1.87 -p 352*
 
 h3. Pasos para poner en funcionamiento la app trivia-mobile:
 
