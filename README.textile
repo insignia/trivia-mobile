@@ -5,7 +5,7 @@ h3. Los requisitos previos:
 
 h3. Pasos para poner en funcionamiento la app trivia-mobile:
 
-1) Instalar Middleman (Middleman es una herramienta de línea de comandos para la creación de páginas web estáticas para más información visitar http://middlemanapp.com/)
+# 1) Instalar Middleman (Middleman es una herramienta de línea de comandos para la creación de páginas web estáticas para más información visitar http://middlemanapp.com/)
 Ir a la consola de comandos y escribir: 
 <pre><code>
 gem install middleman
@@ -16,11 +16,11 @@ Este proceso agregará un nuevo comando, con 3 funciones útiles:
 * *middleman server*
 * *middleman build*
 
-2) Iniciar el servidor de middleman:
+# 2) Iniciar el servidor de middleman:
 En la consola escribir:
 <pre><code>
 cd trivia-mobile (Ir al directorio trivia-mobile)
 trivia-mobile > middleman server –p 4567 
 </code></pre>
 
-3) Abrir el navegador e ir a localhost/4567 para vizualizar la app.
+# 3) Abrir el navegador e ir a localhost/4567 para vizualizar la app.
