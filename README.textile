@@ -1,6 +1,6 @@
 h1. App trivia-mobile http://trivia-mobile.herokuapp.com/
 
-*Descripción:* Esta aplicación muestra una serie de preguntas y nos permite selccionar una respuesta. Si en el primer intento la respuesta ingresada es correcta tendrá un puntaje de 10 pts., si en el segundo intento la respuesta ingresada es correcta tendrá un puntaje de 5ts. y luego del tercer intento la respuesta tendrá un puntaje de 1 pt.
+*Descripción:* Esta aplicación muestra una serie de preguntas y nos permite selccionar una respuesta. Si en el primer intento la respuesta ingresada es correcta tendrá un puntaje de 10 pts., si en el segundo intento la respuesta ingresada es correcta tendrá un puntaje de 5 pts. y luego del tercer intento la respuesta tendrá un puntaje de 1 pt. Al finalizar el cuestionario podrá registrar su puntaje ingresando su Nombre y correo que quedará guardado en la base de datos y además podrá vizualizar la tabla de los mejores puntajes.
 
 Para la construcción de esta aplicación se usaron jquery-mobile, jquery, middleman, parse, backbone.js y coffeescript.
 
