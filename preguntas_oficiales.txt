@@ -1,0 +1,9 @@
+contenido,opcion1,opcion2,opcion3,opcion4,opcion5,posicion,respuesta
+"1. La exposición muestra el accionar de ACME  a nivel:","Nacional","Provincial","Regional","vacio","vacio",1,"3"
+"2. ACME se encuentra organizado en:","4 senderos y 5 áreas estratégicas","5 senderos y 4 áreas estratégicas","4 senderos y 4 áreas estratégicas","vacio","vacio",2,"1"
+"3. Marque el sendero que NO se encuentra en ACME:","Pedemonte y Yungas","Valles áridos, Quebrada y Puna","Valles Templados","Llanura Deprimida Salina","Llanura Chaqueña",3,"4"
+"4. En el sendero de los Valles áridos, Quebrada y Puna se podrán ver las propuestas de ACME en las temáticas de:","Ganadería caprina, ovina y camélidos","Soja y maíz","Cultivo de papa andina y quinua","Manejo sustentable de aromáticas nativas y turismo rural","vacio",4,"2"
+"5. El cultivo de Caña de Azúcar se encuentra la zona de :","Valles Templados","Valles Áridos, Quebrada y Puna","Pedemonte y Yungas","Llanura Chaqueña","vacio",5,"3"
+"6. ¿Cuál de las provincias de la región del NOA presenta la mayor biodiversidad de ambientes?","Salta","Tucumán","Santiago del Estero","Catamarca","vacio",6,"2"
+"7. De los productos agropecuarios producidos en la región, marque aquel en el cual Argentina es el 1° productor Mundial:","Arándano","Limón","Miel","Lana de vicuña","vacio",7,"2"
+"8. Marque el sendero que incluye la producción de granos en su región:","Llanura Chaqueña","Valles Templados","Pedemonte y Yungas","Valles Áridos, Quebrada y Puna","vacio",8,"1"
