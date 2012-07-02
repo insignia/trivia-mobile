@@ -1,7 +1,6 @@
 <head>
         <meta charset="utf-8">
         <meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
-        <!-- modo landscape correcto en ios -->
         <title>Trivia Mobile</title>
         <link rel="stylesheet" href="../css/jquery.mobile.min.css">
         <link rel="stylesheet" media="screen and (min-device-width: 1600px)" href="../css/azul_verde_web.css">
@@ -15,101 +14,13 @@
         <script type="text/javascript" src="../js/cookie/check.js"></script>
         <!-- JSON -->
         <script type="text/javascript" src="../js/cookie/json2.js"></script>
-        <script type="text/javascript">
-            //uso para distinguir los distintos tipos de llamada ajax
-            click_en_boton_pregunta = '0';
-            click_en_boton_registrar = '0';
-            click_lista_puntajes = '0';
-            puntaje_total = 0;
-            //Puntaje: Si respondés a la primera 10pts.
-            // Si respondés al segundo intento 5 pts.
-            // Si respondés luego de 3 o más intentos 1 pt.
-            intento = 1;
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                window.location.href = "/#page1";
-                //Resize de imagen - seccion Preguntas
-                var windowWidth = $(window).width();
-                var windowHeight = $(window).height();
-                console.log("windowWidth es: " + windowWidth);
-                console.log("windowHeight es: " + windowHeight);
-                if(windowWidth <= 400){
-                        $('div #imagen_preguntas').resize({
-                                maxWidth: 100,
-                                maxHeight: 150
-                        });
-                }
-                if(windowWidth > 400 && windowWidth <= 1000){
-                        $('div #imagen_preguntas').resize({
-                                maxWidth: 400,
-                                maxHeight: 150
-                        });
-                }
-                //Puntaje actual
-                puntaje_total = 0;
-                $('#puntaje').html('');
-                $('#puntaje').append(puntaje_total + " pts.");
-                //Mensaje que aparece cuando se contesta mal una pregunta
-                $('#mensaje_error').hide();
-                //Mensaje que aparece cuando se contesta bien una pregunta
-                $('#mensaje_correcto').hide();
-                $('#div_responder').hide(); //contiene al boton responder
-                $('#header_con_botones').show();
-                $('#header_sin_botones').hide();
-                $('#btn_pregunta').click(function(){
-                        //creo la cookie con el "array de preguntas BIEN respondidas", todos los elementos en "0"
-                        //Lo uso para mostrar la respuesta correcta elegida, en vez de seguir mostrando las opciones
-                        var arreglo_correctas = new Array('0','0','0','0','0','0','0','0');
-                        $.cookie('respuestas_cookie', arreglo_correctas);
-                        console.log("contenido respuestas_cookie: " + $.cookie('respuestas_cookie'));
-                        click_en_boton_pregunta = '1';
-                        //Limpio el espacio para las respuestas
-                        vista = new Vista_preguntas();
-                });
-                //ajaxStart y ajaxStop se ejecutan por cualquier llamada AJAX que se haga, OJO!
-                $("#loading").ajaxStart(function(){
-                        $("#loading").show();
-                        console.log("Empieza llamada Ajax");
-                });
-                $("#loading").ajaxStop(function(){
-                        if(click_en_boton_pregunta == '1'){
-                                $('#div_responder').show();
-                                //Para mostrar correctamente el listado de opciones
-                                $('#btn_siguiente').click();
-                                click_en_boton_pregunta = '0';
-                        }
-                        if(click_en_boton_registrar == '1'){
-                                click_en_boton_registrar = '0';
-                                alert("Datos cargados correctamente");
-                                //Limpio formulario de registro de puntaje
-                                $('#user').val('');
-                                $('#email').val('');
-                                puntaje_total = 0;
-                                var lista = $('#lista_puntos');
-                                lista.empty();
-                                $("#plantilla_lista_puntaje").tmpl(lista_puntajes.toJSON()).appendTo(lista);
-                                $('#lista_puntos').listview('refresh');
-                                window.location.href = "/#lista_puntajes";
-                        }
-                        if(click_lista_puntajes == '1'){
-                                var lista = $('#lista_puntos');
-                                lista.empty();
-                                $("#plantilla_lista_puntaje").tmpl(lista_puntajes.toJSON()).appendTo(lista);
-                                $('#lista_puntos').listview('refresh');
-                                        click_lista_puntajes = '0';
-                        }
-                        $("#loading").hide();
-                        console.log("Termina llamada Ajax");
-                });
-            });
-        </script>
+        <script type="text/javascript" src="../js/config.js"></script>
         <!-- Plantilla para radio-buttons que forman las opciones-->
         <script id="plantilla_radio" type="text/x-jquery-tmpl">
-                <li data-theme="a">
-                        <input type="radio" name="opciones" id="${id}"/>
-                        <label id="${id}" for="${id}">${contenido_opcion}</label>
-                </li>
+            <li data-theme="a">
+                <input type="radio" name="opciones" id="${id}"/>
+                <label id="${id}" for="${id}">${contenido_opcion}</label>
+            </li>
         </script>
         <!-- Plantilla para la lista de puntajes-->
         <script id="plantilla_lista_puntaje" type="text/x-jquery-tmpl">

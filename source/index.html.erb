@@ -1,6 +1,6 @@
 <section data-role="page" id="page1" data-theme="c">
-    <script type="text/javascript" src = "js/jquery.parse.js"></script>
-    <script type="text/javascript" src = "js/formulario.js"></script>
+    <script type="text/javascript" src = "../js/jquery.parse.js"></script>
+    <script type="text/javascript" src = "../js/form.js"></script>
     <div data-theme="a" data-role="header">
         <h3>
             Trivia Mobile
@@ -32,9 +32,10 @@
 </section>
 
 <section id="cartel" data-role="page">
-    <script type="text/javascript" src="js/backbone/underscore131.js"></script>
-    <script type="text/javascript" src="js/backbone/backbone090.js"></script>
-    <script type="text/javascript" src="js/trivia.js"></script>
+    <script type="text/javascript" src="../js/backbone/underscore131.js"></script>
+    <script type="text/javascript" src="../js/backbone/backbone090.js"></script>
+    <script type="text/javascript" src="../app/models/pregunta.js"></script>
+    <script type="text/javascript" src="../app/view/vpreguntas.js"></script>
     <div id="header_con_botones" data-theme="a" data-role="header">
         <h3>
             Trivia Mobile
@@ -58,7 +59,7 @@
             <div class="ui-block-b"><small><a id="btn_siguiente" data-role="button" data-transition="none" href="#cartel" data-theme="a">&gt;</a></small>
             </div>
         </div>
-        <div id="loading" align="center"><img src="css/images/ajax-loader.gif"></div>
+        <div id="loading" align="center"><img src="../css/images/ajax-loader.gif"></div>
         <div id="mensaje_error" data-role="content" class="ui-bar ui-grid-b" align="center">
             <div class="ui-block-a" align="center">
                 <img id="" src="../images/incorrecto.png" width="40" height="40">
@@ -98,9 +99,10 @@
 </section>
 
 <section data-role="page" id="registrar_puntaje" data-theme="c">
-    <script type="text/javascript" src="js/backbone/underscore131.js"></script>
-    <script type="text/javascript" src="js/backbone/backbone090.js"></script>
-    <script type="text/javascript" src="js/vista_puntaje.js"></script>
+    <script type="text/javascript" src="../js/backbone/underscore131.js"></script>
+    <script type="text/javascript" src="../js/backbone/backbone090.js"></script>
+    <script type="text/javascript" src="../app/models/puntaje.js"></script>
+    <script type="text/javascript" src="../app/view/vpuntajes.js"></script>
     <article>
         <div data-theme="a" data-role="header">
             <h3>
