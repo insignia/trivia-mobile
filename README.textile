@@ -37,12 +37,9 @@ middleman server –p 4567
 
 7) Crear una app en Parse, luego ir a Dashboard y seleccionar la app creada anteriormente.
 
-8) Copiar los valores que figuran en Application ID y REST API Key y pegarlos en los archivos javascript formulario.js, vista_puntaje.js y trivia.js 
+8) Copiar los valores que figuran en Application ID y REST API Key y pegarlos en los archivos vpreguntas.js.coffee y vpuntajes.js.coffee
 <pre><code>
-$.parse.init({
-       		app_id : 'Application ID', 
-       		rest_key : 'REST API Key'  
-       		});
+init('Application ID','REST API Key')
 </code></pre>
 9) Ir a Data Browser y elegir la opción Import existing data from a CSV file. En Name of new class poner preguntas_oficiales y seleccionar el archivo preguntas_oficiales.txt que se encuentra en la carpeta de trivia-mobile y luego Import. Al hacer esto se creará una tabla con los datos de las preguntas de la app.
 
