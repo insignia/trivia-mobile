@@ -37,7 +37,7 @@ middleman server –p 4567
 
 7) Crear una app en Parse, luego ir a Dashboard y seleccionar la app creada anteriormente.
 
-8) Copiar los valores que figuran en Application ID y REST API Key y pegarlos en los archivos vpreguntas.js.coffee y vpuntajes.js.coffee
+8) Copiar los valores que figuran en Application ID y REST API Key y pegarlos en los archivos vpreguntas.js.coffee y vpuntajes.js.coffee en la siguiente parte del codigo:
 <pre><code>
 init('Application ID','REST API Key')
 </code></pre>
