@@ -4,7 +4,7 @@ class window.Vista_puntaje extends Backbone.View
     initialize: ->
         _.bindAll(this, 'lista_puntaje')
         init = (app_id,rest_key) -> $.parse.init({app_id,rest_key})
-        init('F1iXn056CKTE2k4RUMZeiLkaoWC9geoKsKKeMeYd','zjeGNFeqTB8XuXhcrVDdfkInx8656DAnDcfR0Nr8')
+        init('Application ID','REST API Key')
 
     events: 'click a#btn_lista_puntajes': 'lista_puntaje'
     
