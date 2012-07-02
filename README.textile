@@ -11,14 +11,15 @@ h3. Pasos para poner en funcionamiento la app trivia-mobile:
 
 1) Hacer fork al repositorio https://github.com/insignia/trivia-mobile
 
-2) Clonar repositorio
+2) Clonar el repositorio
+Ir a la consola de comandos y escribir:
 <pre><code>
 git clone git@github.com:username/trivia-mobile.git
 </code></pre>
 
 3) Instalar Middleman (Middleman es una herramienta de línea de comandos para la creación de páginas web estáticas para más información visitar http://middlemanapp.com/)
 
-Ir a la consola de comandos y escribir: 
+En la consola escribir: 
 <pre><code>
 gem install middleman
 </code></pre>
@@ -33,9 +34,9 @@ middleman server –p 4567
 
 5) Abrir el navegador y escribir la dirección localhost:4567 para ver si se vizualiza la app correctamente.
 
-6) Crear cuenta en Parse https://parse.com/ 
+6) Crear una cuenta en Parse https://parse.com/ 
 
-7) Crear una app en Parse, luego ir a Dashboard y seleccionar la app creada anteriormente.
+7) Crear una app en Parse con cualquier nombre, luego ir a Dashboard y seleccionar la app creada anteriormente.
 
 8) Copiar los valores que figuran en Application ID y REST API Key y pegarlos en los archivos vpreguntas.js.coffee y vpuntajes.js.coffee en la siguiente parte del codigo:
 <pre><code>
