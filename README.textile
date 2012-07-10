@@ -38,7 +38,7 @@ init('Application ID','REST API Key')
 Su codigo debe quedar de la siguiente manera pero con sus valores de Application ID y REST API Key. 
 Ejemplo: init('mJDSHSMJbdXm1GtLsTsGhXDvqn63RER6HL23JXTCG','ubpbA8Q1gplTRybw6pTkDAoZsT8KZTI9cy2tKJ82')
 
-*(Los archivos vpreguntas.js.coffee y vpuntaje.js.coffee se encuentran en trivia-mobile/source/app/view)*
+*(Los archivos vpreguntas.js.coffee y vpuntajes.js.coffee se encuentran en trivia-mobile/source/app/view)*
 
 6) Ir a Data Browser y elegir la opción Import existing data from a CSV file. En Name of new class poner preguntas_oficiales, seleccionar archivo preguntas_oficiales.txt que se encuentra en la carpeta de trivia-mobile y luego Import. Por ultimo seleccionar los siguientes tipos de datos para cada campo:
 * Contenido: string
