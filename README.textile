@@ -33,6 +33,8 @@ bundle install
 <pre><code>
 init('Application ID','REST API Key')
 
+En vpreguntas.js.coffee linea 9
+En vpuntajes.js.coffee linea 7
 </code></pre>
 
 Su codigo debe quedar de la siguiente manera pero con sus valores de Application ID y REST API Key. 
