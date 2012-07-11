@@ -3,8 +3,7 @@ class window.Vista_puntaje extends Backbone.View
 
     initialize: ->
         _.bindAll(this, 'lista_puntaje')
-        init = (app_id,rest_key) -> $.parse.init({app_id,rest_key})
-        init('Application ID','REST API Key')
+        App.parseInit()
 
     events: 'click a#btn_lista_puntajes': 'lista_puntaje'
     
@@ -34,7 +33,4 @@ class window.Vista_puntaje extends Backbone.View
                     window.lista_puntajes.add punto
                     total++)
 
-tabla_puntajes = new window.Vista_puntaje    
-
-
-
+tabla_puntajes = new window.Vista_puntaje

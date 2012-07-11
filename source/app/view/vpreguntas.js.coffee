@@ -4,9 +4,7 @@ class window.Vista_preguntas extends Backbone.View
     initialize: ->
         _.bindAll(this, 'siguiente', 'anterior', 'responder')
         this.options.posicion_pregunta = '0'
-
-        init = (app_id,rest_key) -> $.parse.init({app_id,rest_key})
-        init('Application ID','REST API Key')
+        App.parseInit()
         
         $.parse.get "classes/preguntas_oficiales", (json) ->
             results = json.results
