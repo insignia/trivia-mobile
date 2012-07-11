@@ -8,18 +8,17 @@ Para la construcción de esta aplicación se usaron jquery-mobile, jquery, middl
 
 - **Debe tener instalado ruby 1.8.7 y git**
 
+
 ### Pasos para poner en funcionamiento la app trivia-mobile:
 
-1) Clonar el repositorio
-Ir a la consola de comandos y escribir:
+1) Clonar el repositorio. Ir a la consola de comandos y escribir:
 
 	git clone git@github.com:insignia/trivia-mobile.git
 
-2) Instalar todo lo necesario para su funcionamiento
-En la consola escribir:
-
-	cd trivia-mobile (Ir al directorio trivia-mobile clonado anteriormente)
+2) Para instalar todo lo necesario para su funcionamiento, debe estar dentro del directorio trivia-mobile clonado anteriormente y en la consola escribir:
+```ruby
 	bundle install 
+```
 
 3) Crear una cuenta en [Parse][urlParse] 
 
@@ -27,13 +26,15 @@ En la consola escribir:
 
 5) Copiar los valores que figuran en Application ID y REST API Key de su cuenta de Parse y pegarlos en los archivos vpreguntas.js.coffee y vpuntajes.js.coffee en la siguiente parte del código: 
 
-	init('Application ID','REST API Key')
+```javascript
+init('Application ID','REST API Key')
+	
+//En vpreguntas.js.coffee línea 9
+//En vpuntajes.js.coffee línea 7
 
-En vpreguntas.js.coffee línea 9
-En vpuntajes.js.coffee línea 7
-
-Su código debe quedar de la siguiente manera pero con sus valores de Application ID y REST API Key. 
-Ejemplo: init('mJDSHSMJbdXm1GtLsTsGhXDvqn63RER6HL23JXTCG','ubpbA8Q1gplTRybw6pTkDAoZsT8KZTI9cy2tKJ82')
+//Su código debe quedar de la siguiente manera pero con sus valores de Application ID y REST API Key. 
+//Ejemplo: init('mJDSHSMJbdXm1GtLsTsGhXDvqn63RER6HL23JXTCG','ubpbA8Q1gplTRybw6pTkDAoZsT8KZTI9cy2tKJ82')
+```
 
 **Los archivos vpreguntas.js.coffee y vpuntajes.js.coffee se encuentran en trivia-mobile/source/app/view**
 
