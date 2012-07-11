@@ -1,0 +1,5 @@
+class window.App
+
+  @parseInit: ->
+    init = (app_id,rest_key) -> $.parse.init({app_id,rest_key})
+    init '<%= data.settings.parse.app_id %>','<%= data.settings.parse.rest_api_key %>'
