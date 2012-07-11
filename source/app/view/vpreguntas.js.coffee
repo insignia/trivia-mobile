@@ -20,7 +20,10 @@ class window.Vista_preguntas extends Backbone.View
                             opcion5: pregunta.opcion5 
                 collection.add item
 
-    events: 'click a#btn_siguiente': 'siguiente','click a#btn_anterior': 'anterior','click a#btn_responder': 'responder'
+    events: 
+        'click a#btn_siguiente': 'siguiente'
+        'click a#btn_anterior': 'anterior'
+        'click a#btn_responder': 'responder'
 
     siguiente: => 
         window.orden_hacia_adelante = this.options.posicion_pregunta
@@ -41,10 +44,12 @@ class window.Vista_preguntas extends Backbone.View
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i]
+                #FIXME: Esta sección debe ser muy similar a la sección de abajo, 
+                #ver si se puede unificar esto y otras cosas similares de estos dos métodos.
                 if window.respondida is '1'
+                    $('#mensaje_correcto').show()
                     $('#respuestas').hide()
                     $('#div_responder').hide()
-                    $('#mensaje_correcto').show()
                 else
                     $('#mensaje_correcto').hide()
                     $('#respuestas').show()
@@ -53,8 +58,8 @@ class window.Vista_preguntas extends Backbone.View
                     lista.empty()
                     $("#plantilla_radio").tmpl(coleccion_opciones.toJSON()).appendTo(lista)
                     $('#respuestas').listview('refresh')
-        this.options.posicion_pregunta = window.orden_hacia_adelante            
-        
+        this.options.posicion_pregunta = window.orden_hacia_adelante
+
     anterior: =>
         window.orden_hacia_atras = this.options.posicion_pregunta
         if window.orden_hacia_atras > 1 then window.orden_hacia_atras--
@@ -75,9 +80,9 @@ class window.Vista_preguntas extends Backbone.View
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i];
                 if window.respondida is '1'
+                    $('#mensaje_correcto').show()
                     $('#respuestas').hide()
                     $('#div_responder').hide()
-                    $('#mensaje_correcto').show()
                 else
                     $('#mensaje_correcto').hide()
                     $('#respuestas').show()
@@ -95,6 +100,7 @@ class window.Vista_preguntas extends Backbone.View
         correcta = collection.at(this.options.posicion_pregunta - 1).get 'respuesta'
         window.preg_actual = this.options.posicion_pregunta - 1
         if correcta is resp_elegida
+            #FIXME: estos divs se ocultas/muestran en varios lugares, por ahi podría extraerse a un método que reciba un parámetro indicando si se queiren ocultar o desocultar.
             $('#mensaje_error').hide()
             $('#respuestas').hide()
             $('#div_responder').hide()
@@ -107,7 +113,7 @@ class window.Vista_preguntas extends Backbone.View
                     opcion = new window.Pregunta
                         id: j
                         contenido_opcion: collection.at(window.preg_actual).get nombre
-                    coleccion_opciones.add opcion                
+                    coleccion_opciones.add opcion
             cookie = $.cookie('respuestas_cookie')
             window.arreglo = cookie.split(",")
             window.arreglo[window.preg_actual] = '1'
