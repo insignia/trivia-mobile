@@ -2,7 +2,7 @@
 
 **Descripción:** Esta aplicación muestra una serie de preguntas y nos permite selccionar una respuesta. Si en el primer intento la respuesta ingresada es correcta tendrá un puntaje de 10 pts., si en el segundo intento la respuesta ingresada es correcta tendrá un puntaje de 5 pts. y luego del tercer intento la respuesta tendrá un puntaje de 1 pt. Al finalizar el cuestionario podrá registrar su puntaje ingresando su Nombre y Correo que quedará guardado en la base de datos y además podrá vizualizar la tabla de los mejores puntajes.
 
-Para la construcción de esta aplicación se usaron jquery-mobile, jquery, middleman, Parse, backbone.js y coffeescript.
+Para la construcción de esta aplicación se usaron [jquery-mobile][urljmobile], [jquery][urljquery], [middleman][urlMiddleman], [parse][urlParse], [backbone.js][urlbackbone] y [coffeescript][urlcoffee].
 
 ### Los requisitos previos: 
 
@@ -32,7 +32,7 @@ init('Application ID','REST API Key')
 //En vpuntajes.js.coffee línea 7
 
 //Su código debe quedar de la siguiente manera pero con sus valores de Application ID y REST API Key. 
-//Ejemplo: init('mJDSHSMJbdXm1GtLsTsGhXDvqn63RER6HL23JXTCG','ubpbA8Q1gplTRybw6pTkDAoZsT8KZTI9cy2tKJ82')
+//Ejemplo: init('ayHRkdOEaRIprIoNE47zeWOSMsUGFKSGP7f0bEpZ','ziHceqRsL1DHVWI3C0DzvuG28LPh77BvHbtEGYBN')
 ```
 
 **Nota:** Los archivos vpreguntas.js.coffee y vpuntajes.js.coffee se encuentran en trivia-mobile/source/app/view
@@ -59,4 +59,8 @@ Al hacer esto se creará una tabla con los datos de las preguntas de la app.
 
 [url]: http://trivia-mobile.herokuapp.com/
 [urlParse]: https://parse.com/
-[urlMiddleman]: http://middlemanapp.com/ 
+[urlMiddleman]: http://middlemanapp.com/
+[urlbackbone]: http://backbonejs.org/
+[urlcoffee]: http://coffeescript.org/
+[urljmobile]: http://jquerymobile.com/
+[urljquery]: http://jquery.com/
