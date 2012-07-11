@@ -1181,8 +1181,6 @@
       params.processData = false;
     }
 
-    /*console.log("params: ");
-    console.log(params);*/
     // Make the request, allowing the user to override any Ajax options.
     return $.ajax(_.extend(params, options));
   };

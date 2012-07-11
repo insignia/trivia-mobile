@@ -16,7 +16,6 @@ class window.Vista_puntaje extends Backbone.View
                 name = user.username
                 email = user.email
                 puntaje = user.puntaje;
-                console.log name + " - email: " + email + " - " + puntaje + " pts."
                 item = new window.Puntaje
                     name: name
                     email: email

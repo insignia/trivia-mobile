@@ -8,8 +8,6 @@ $(document).ready ->
     window.location.href = "/#page1"
     windowWidth = $(window).width()
     windowHeight = $(window).height()
-    console.log "windowWidth es: " + windowWidth
-    console.log "windowHeight es: " + windowHeight
     if windowWidth <= 400  
     	$('div #imagen_preguntas').resize({
     		maxWidth: 100,
@@ -29,15 +27,12 @@ $(document).ready ->
     $('#btn_pregunta').click ->
         arreglo_correctas = new Array('0','0','0','0','0','0','0','0')
         $.cookie('respuestas_cookie', arreglo_correctas)
-        console.log "contenido respuestas_cookie: " + $.cookie('respuestas_cookie')
         click_en_boton_pregunta = '1'
         vista = new window.Vista_preguntas
     $("#loading").ajaxStart ->
         $("#loading").show()
-        console.log "Empieza llamada Ajax" 
     $("#loading").ajaxStop ->
         if click_en_boton_pregunta is '1'
-            console.log "pregunta 1"
             $('#div_responder').show()
             $('#btn_siguiente').click()
             click_en_boton_pregunta = '0'
@@ -59,5 +54,3 @@ $(document).ready ->
             $('#lista_puntos').listview('refresh')
             click_lista_puntajes = '0'
         $("#loading").hide()
-        console.log "Termina llamada Ajax"
-                               
