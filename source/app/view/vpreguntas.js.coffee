@@ -79,10 +79,7 @@ class window.VistaPreguntas extends Backbone.View
         window.preg_actual = this.options.posicion_pregunta - 1
         if correcta is resp_elegida
             #FIXME: estos divs se ocultas/muestran en varios lugares, por ahi podría extraerse a un método que reciba un parámetro indicando si se queiren ocultar o desocultar.
-            $('#mensaje_error').hide()
-            $('#respuestas').hide()
-            $('#div_responder').hide()
-            $('#mensaje_correcto').show()
+            msj.mensajes('0','1','0','0','1','0')
             window.id_correcto = collection.at(this.options.posicion_pregunta - 1).get 'respuesta'
             coleccion_opciones = new window.Preguntas
             for j in [0..5]
@@ -108,30 +105,25 @@ class window.VistaPreguntas extends Backbone.View
             if unos is 8 then setTimeout (-> window.location.href = "/#registrar_puntaje"), 250
         else
             window.intento++
-            $('#mensaje_error').show()
-            $('#respuestas').hide()
+            msj.mensajes('1','0','0','0','1','0')
             setTimeout ( -> 
-                $('#mensaje_error').hide() 
+                msj.mensajes('0','0','0','0','1','0')
                 if window.preg_actual is 7
                     $('#btn_anterior').click()
                     $('#btn_siguiente').click()
                 else
                     $('#btn_siguiente').click()
                     $('#btn_anterior').click()
-                $('#respuestas').show()
+                msj.mensajes('0','0','1','1','1','0')
             ), 2000              
             $('#puntaje').html('')
             $('#puntaje').append(window.puntaje_total + " pts.")
 
     checkearespuesta: =>
         if window.respondida is '1'
-            $('#mensaje_correcto').show()
-            $('#respuestas').hide()
-            $('#div_responder').hide()
+            msj.mensajes('0','1','0','0','1','0')
         else
-            $('#mensaje_correcto').hide()
-            $('#respuestas').show()
-            $('#div_responder').show()
+            msj.mensajes('0','0','1','1','1','0')
             lista = $('#respuestas', this.el)
             lista.empty()
             $("#plantilla_radio").tmpl(window.coleccion_opciones.toJSON()).appendTo(lista)

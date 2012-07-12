@@ -4,6 +4,15 @@ window.click_lista_puntajes = '0'
 window.puntaje_total = 0
 window.intento = 1
 
+class window.msj    
+    @mensajes = (me,mc,dr,re,hc,hs) ->
+        if me is '0' then $('#mensaje_error').hide() else $('#mensaje_error').show()
+        if mc is '0' then $('#mensaje_correcto').hide() else $('#mensaje_correcto').show()
+        if dr is '0' then $('#div_responder').hide() else $('#div_responder').show()
+        if re is '0' then $('#respuestas').hide() else $('#respuestas').show()
+        if hc is '0' then $('#header_con_botones').hide() else $('#header_con_botones').show()
+        if hs is '0' then $('#header_sin_botones').hide() else $('#header_sin_botones').show()
+
 $(document).ready ->
     window.location.href = "/#page1"
     windowWidth = $(window).width()
@@ -19,11 +28,7 @@ $(document).ready ->
     window.puntaje_total = 0
     $('#puntaje').html('')
     $('#puntaje').append(window.puntaje_total + " pts.")
-    $('#mensaje_error').hide()
-    $('#mensaje_correcto').hide()
-    $('#div_responder').hide()
-    $('#header_con_botones').show()
-    $('#header_sin_botones').hide()
+    msj.mensajes('0','0','0','0','1','0')
     $('#btn_pregunta').click ->
         arreglo_correctas = new Array('0','0','0','0','0','0','0','0')
         $.cookie('respuestas_cookie', arreglo_correctas)
@@ -33,7 +38,7 @@ $(document).ready ->
         $("#loading").show()
     $("#loading").ajaxStop ->
         if click_en_boton_pregunta is '1'
-            $('#div_responder').show()
+            msj.mensajes('0','0','1','0','1','0')
             $('#btn_siguiente').click()
             click_en_boton_pregunta = '0'
         if click_en_boton_registrar is '1'
