@@ -1,4 +1,4 @@
-class window.Vista_puntaje extends Backbone.View
+class window.VistaPuntaje extends Backbone.View
     el: $('#registrar_puntaje')
 
     initialize: ->
@@ -34,4 +34,4 @@ class window.Vista_puntaje extends Backbone.View
                     window.lista_puntajes.add punto
                     total++)
 
-tabla_puntajes = new window.Vista_puntaje
+tabla_puntajes = new window.VistaPuntaje
