@@ -4,11 +4,14 @@
   		<meta charset="utf-8">
 		<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
 		<title><%= data.page.title || "Trivia Mobile" %></title>
+		
 		<%= stylesheet_link_tag "jquery.mobile.min" %>
 		<link rel="stylesheet" media="screen and (min-device-width: 1600px)" href="../stylesheets/azul_verde_web.css">
 		<link rel="stylesheet" media="screen and (max-device-width: 1000px)" href="../stylesheets/azul_verde.css"> 
+    	
     	<%= javascript_include_tag "jquery-1.7.1.min", "jquery.mobile.min" , "jquery.tmpl", "cookie.jquery", "check","json2" %>
 		<script type="text/javascript" src="../javascripts/config.js"></script>
+		
 		<%= partial "templates" %>
   </head>
   
