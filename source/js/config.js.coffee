@@ -28,7 +28,7 @@ $(document).ready ->
         arreglo_correctas = new Array('0','0','0','0','0','0','0','0')
         $.cookie('respuestas_cookie', arreglo_correctas)
         click_en_boton_pregunta = '1'
-        vista = new window.Vista_preguntas
+        vista = new window.VistaPreguntas
     $("#loading").ajaxStart ->
         $("#loading").show()
     $("#loading").ajaxStop ->

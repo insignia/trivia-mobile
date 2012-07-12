@@ -1,4 +1,4 @@
-class window.Vista_preguntas extends Backbone.View
+class window.VistaPreguntas extends Backbone.View
     el: $('#cartel') 
 
     initialize: ->
