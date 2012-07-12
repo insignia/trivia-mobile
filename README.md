@@ -36,9 +36,9 @@ parse:
 // 		app_id: ayHRkdOEaRIprIoNE47zeWOSMsUGFKSGP7f0bEpZ
 // 		rest_api_key: ziHceqRsL1DHVWI3C0DzvuG28LPh77BvHbtEGYBN
 ```
-Luego guardar los cambios en el archivo
+Luego guardar los cambios en el archivo.
 
-**Nota:** El archivo settings.yml.sample se encuentra en trivia-mobile/data/
+**Nota:** El archivo settings.yml.sample se encuentra en trivia-mobile/data.
 
 6) Renombrar el archivo settings.yml.sample a settings.yml
 
