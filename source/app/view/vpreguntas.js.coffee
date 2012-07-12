@@ -25,7 +25,7 @@ class window.VistaPreguntas extends Backbone.View
         'click a#btn_anterior': 'anterior'
         'click a#btn_responder': 'responder'
 
-    siguiente: => 
+    siguiente: =>
         window.orden_hacia_adelante = this.options.posicion_pregunta
         if window.orden_hacia_adelante < 8 then window.orden_hacia_adelante++
         for i in [0..7]
@@ -33,31 +33,20 @@ class window.VistaPreguntas extends Backbone.View
             window.respondida = i
             if posicion is window.orden_hacia_adelante
                 document.getElementById("contenido").innerHTML = collection.at(i).get 'contenido'
-                coleccion_opciones = new window.Preguntas
+                window.coleccion_opciones = new window.Preguntas
                 for j in [1..5]
                     nombre = "opcion" + j
                     if collection.at(i).get(nombre) isnt 'vacio'
                         opcion = new window.Pregunta
                             id: j
                             contenido_opcion: collection.at(i).get nombre
-                        coleccion_opciones.add opcion
+                        window.coleccion_opciones.add opcion
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
-                window.respondida = window.arreglo[i]
+                window.respondida = window.arreglo[i] 
                 #FIXME: Esta sección debe ser muy similar a la sección de abajo, 
                 #ver si se puede unificar esto y otras cosas similares de estos dos métodos.
-                if window.respondida is '1'
-                    $('#mensaje_correcto').show()
-                    $('#respuestas').hide()
-                    $('#div_responder').hide()
-                else
-                    $('#mensaje_correcto').hide()
-                    $('#respuestas').show()
-                    $('#div_responder').show()
-                    lista = $('#respuestas', this.el)
-                    lista.empty()
-                    $("#plantilla_radio").tmpl(coleccion_opciones.toJSON()).appendTo(lista)
-                    $('#respuestas').listview('refresh')
+                this.checkearespuesta()
         this.options.posicion_pregunta = window.orden_hacia_adelante
 
     anterior: =>
@@ -67,30 +56,19 @@ class window.VistaPreguntas extends Backbone.View
             posicion = collection.at(i).get 'posicion'
             window.respondida = i
             if posicion is window.orden_hacia_atras
-                document.getElementById("contenido").innerHTML = collection.at(i).get('contenido')
-                coleccion_opciones = new window.Preguntas
-                for j in [1..5] 
+                document.getElementById("contenido").innerHTML = collection.at(i).get 'contenido'
+                window.coleccion_opciones = new window.Preguntas
+                for j in [1..5]
                     nombre = "opcion" + j
                     if collection.at(i).get(nombre) isnt 'vacio'
                         opcion = new window.Pregunta
                             id: j
                             contenido_opcion: collection.at(i).get nombre
-                        coleccion_opciones.add opcion
+                        window.coleccion_opciones.add opcion
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
-                window.respondida = window.arreglo[i];
-                if window.respondida is '1'
-                    $('#mensaje_correcto').show()
-                    $('#respuestas').hide()
-                    $('#div_responder').hide()
-                else
-                    $('#mensaje_correcto').hide()
-                    $('#respuestas').show()
-                    $('#div_responder').show()
-                    lista = $('#respuestas', this.el)
-                    lista.empty()
-                    $("#plantilla_radio").tmpl(coleccion_opciones.toJSON()).appendTo(lista)
-                    $('#respuestas').listview('refresh')
+                window.respondida = window.arreglo[i] 
+                this.checkearespuesta()
         this.options.posicion_pregunta = window.orden_hacia_atras               
 
     responder: =>
@@ -144,3 +122,17 @@ class window.VistaPreguntas extends Backbone.View
             ), 2000              
             $('#puntaje').html('')
             $('#puntaje').append(window.puntaje_total + " pts.")
+
+    checkearespuesta: =>
+        if window.respondida is '1'
+            $('#mensaje_correcto').show()
+            $('#respuestas').hide()
+            $('#div_responder').hide()
+        else
+            $('#mensaje_correcto').hide()
+            $('#respuestas').show()
+            $('#div_responder').show()
+            lista = $('#respuestas', this.el)
+            lista.empty()
+            $("#plantilla_radio").tmpl(window.coleccion_opciones.toJSON()).appendTo(lista)
+            $('#respuestas').listview('refresh') 
