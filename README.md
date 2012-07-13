@@ -23,7 +23,11 @@ Para la construcción de esta aplicación se usaron [jquery-mobile][urljmobile],
 
 4) Crear una app en Parse con cualquier nombre, luego ir a Dashboard y seleccionar la app creada anteriormente.
 
-5) Copiar los valores que figuran en Application ID y REST API Key de su cuenta de Parse y pegarlos en el archivo settings.yml.sample en la siguiente parte del código: 
+5) Hacer una copia del archivo settings.yml.sample y ponerle el nombre de settings.yml
+
+**Nota:** El archivo settings.yml.sample se encuentra en trivia-mobile/data.
+
+6) Copiar los valores que figuran en Application ID y REST API Key de su cuenta de Parse y pegarlos en el archivo settings.yml creado anteriormente en la siguiente parte del código: 
 
 ```javascript
 parse:
@@ -37,10 +41,6 @@ parse:
 // 		rest_api_key: ziHceqRsL1DHVWI3C0DzvuG28LPh77BvHbtEGYBN
 ```
 Luego guardar los cambios en el archivo.
-
-**Nota:** El archivo settings.yml.sample se encuentra en trivia-mobile/data.
-
-6) Renombrar el archivo settings.yml.sample a settings.yml
 
 7) Ir a Data Browser y elegir la opción Import existing data from a CSV file. En Name of new class poner preguntas_oficiales, seleccionar archivo preguntas_oficiales.txt que se encuentra en la carpeta de trivia-mobile y luego Import. Por último seleccionar los siguientes tipos de datos para cada campo:
 - **Contenido:** string
