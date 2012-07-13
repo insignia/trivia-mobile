@@ -2,8 +2,8 @@ class window.VistaPreguntas extends Backbone.View
     el: $('#cartel') 
 
     initialize: ->
-        _.bindAll(this, 'siguiente', 'anterior', 'responder')
-        this.options.posicion_pregunta = '0'
+        _.bindAll(@, 'siguiente', 'anterior', 'responder')
+        @.options.posicion_pregunta = '0'
         App.parseInit()
         
         $.parse.get "classes/preguntas_oficiales", (json) ->
@@ -26,7 +26,7 @@ class window.VistaPreguntas extends Backbone.View
         'click a#btn_responder': 'responder'
 
     siguiente: =>
-        window.orden_hacia_adelante = this.options.posicion_pregunta
+        window.orden_hacia_adelante = @.options.posicion_pregunta
         if window.orden_hacia_adelante < 8 then window.orden_hacia_adelante++
         for i in [0..7]
             posicion = collection.at(i).get 'posicion'
@@ -46,11 +46,11 @@ class window.VistaPreguntas extends Backbone.View
                 window.respondida = window.arreglo[i] 
                 #FIXME: Esta sección debe ser muy similar a la sección de abajo, 
                 #ver si se puede unificar esto y otras cosas similares de estos dos métodos.
-                this.checkearespuesta()
-        this.options.posicion_pregunta = window.orden_hacia_adelante
+                @.checkearespuesta()
+        @.options.posicion_pregunta = window.orden_hacia_adelante
 
     anterior: =>
-        window.orden_hacia_atras = this.options.posicion_pregunta
+        window.orden_hacia_atras = @.options.posicion_pregunta
         if window.orden_hacia_atras > 1 then window.orden_hacia_atras--
         for i in [0..7]
             posicion = collection.at(i).get 'posicion'
@@ -68,19 +68,19 @@ class window.VistaPreguntas extends Backbone.View
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i] 
-                this.checkearespuesta()
-        this.options.posicion_pregunta = window.orden_hacia_atras               
+                @.checkearespuesta()
+        @.options.posicion_pregunta = window.orden_hacia_atras               
 
     responder: =>
         long = (document.respuestas.opciones.length - 1)
         for i in [0..long]
             if document.respuestas.opciones[i].checked then resp_elegida = document.respuestas.opciones[i].id
-        correcta = collection.at(this.options.posicion_pregunta - 1).get 'respuesta'
-        window.preg_actual = this.options.posicion_pregunta - 1
+        correcta = collection.at(@.options.posicion_pregunta - 1).get 'respuesta'
+        window.preg_actual = @.options.posicion_pregunta - 1
         if correcta is resp_elegida
             #FIXME: estos divs se ocultas/muestran en varios lugares, por ahi podría extraerse a un método que reciba un parámetro indicando si se queiren ocultar o desocultar.
             msj.mensajes('0','1','0','0','1','0')
-            window.id_correcto = collection.at(this.options.posicion_pregunta - 1).get 'respuesta'
+            window.id_correcto = collection.at(@.options.posicion_pregunta - 1).get 'respuesta'
             coleccion_opciones = new window.Preguntas
             for j in [0..5]
                 nombre = "opcion" + j
@@ -124,7 +124,7 @@ class window.VistaPreguntas extends Backbone.View
             msj.mensajes('0','1','0','0','1','0')
         else
             msj.mensajes('0','0','1','1','1','0')
-            lista = $('#respuestas', this.el)
+            lista = $('#respuestas', @.el)
             lista.empty()
             $("#plantilla_radio").tmpl(window.coleccion_opciones.toJSON()).appendTo(lista)
             $('#respuestas').listview('refresh') 

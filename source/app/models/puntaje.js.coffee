@@ -1,9 +1,9 @@
 class window.Puntaje extends Backbone.Model
      initialize: ->
-        _.bindAll(this, 'remove')
+        _.bindAll(@, 'remove')
      
      remove: ->
-        this.destroy()
+        @.destroy()
 
 class window.Puntajes extends Backbone.Collection
     model: window.Puntaje

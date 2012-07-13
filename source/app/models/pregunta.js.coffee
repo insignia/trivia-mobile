@@ -1,9 +1,9 @@
 class window.Pregunta extends Backbone.Model
      initialize: ->
-        _.bindAll(this, 'remove')
+        _.bindAll(@, 'remove')
 
      remove: ->
-        this.destroy()
+        @.destroy()
 
 class window.Preguntas extends Backbone.Collection
     model: window.Pregunta

@@ -2,7 +2,7 @@ class window.VistaPuntaje extends Backbone.View
     el: $('#registrar_puntaje')
 
     initialize: ->
-        _.bindAll(this, 'lista_puntaje')
+        _.bindAll(@, 'lista_puntaje')
         App.parseInit()
 
     events: 'click a#btn_lista_puntajes': 'lista_puntaje'
