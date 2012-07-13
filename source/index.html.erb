@@ -1,6 +1,5 @@
 <section data-role="page" id="page1" data-theme="c">
-    <script type="text/javascript" src="../javascripts/jquery.parse.js"></script>
-    <script type="text/javascript" src="../javascripts/form.js"></script>
+    <%= javascript_include_tag "jquery.parse", "form" %>
     <div data-theme="a" data-role="header">
         <h3>
             Trivia Mobile
@@ -32,11 +31,7 @@
 </section>
 
 <section id="cartel" data-role="page">
-    <script type="text/javascript" src="../javascripts/underscore131.js"></script>
-    <script type="text/javascript" src="../javascripts/backbone090.js"></script>
-    <script type="text/javascript" src="../app/app.js"></script>
-    <script type="text/javascript" src="../app/models/pregunta.js"></script>
-    <script type="text/javascript" src="../app/view/vpreguntas.js"></script>
+    <%= javascript_include_tag "underscore131", "backbone090","../app/app", "../app/models/pregunta", "../app/view/vpreguntas" %>
     <div id="header_con_botones" data-theme="a" data-role="header">
         <h3>
             Trivia Mobile
@@ -100,10 +95,7 @@
 </section>
 
 <section data-role="page" id="registrar_puntaje" data-theme="c">
-    <script type="text/javascript" src="../javascripts/underscore131.js"></script>
-    <script type="text/javascript" src="../javascripts/backbone090.js"></script>
-    <script type="text/javascript" src="../app/models/puntaje.js"></script>
-    <script type="text/javascript" src="../app/view/vpuntajes.js"></script>
+     <%= javascript_include_tag "underscore131", "backbone090", "../app/models/puntaje", "../app/view/vpuntajes" %>
     <article>
         <div data-theme="a" data-role="header">
             <h3>
