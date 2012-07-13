@@ -25,7 +25,7 @@ class window.VistaPreguntas extends Backbone.View
         'click a#btn_anterior': 'anterior'
         'click a#btn_responder': 'responder'
 
-    siguiente: =>
+    siguiente: ->
         window.orden_hacia_adelante = @.options.posicion_pregunta
         if window.orden_hacia_adelante < 8 then window.orden_hacia_adelante++
         for i in [0..7]
@@ -49,7 +49,7 @@ class window.VistaPreguntas extends Backbone.View
                 @.checkearespuesta()
         @.options.posicion_pregunta = window.orden_hacia_adelante
 
-    anterior: =>
+    anterior: ->
         window.orden_hacia_atras = @.options.posicion_pregunta
         if window.orden_hacia_atras > 1 then window.orden_hacia_atras--
         for i in [0..7]
@@ -71,7 +71,7 @@ class window.VistaPreguntas extends Backbone.View
                 @.checkearespuesta()
         @.options.posicion_pregunta = window.orden_hacia_atras               
 
-    responder: =>
+    responder: ->
         long = (document.respuestas.opciones.length - 1)
         for i in [0..long]
             if document.respuestas.opciones[i].checked then resp_elegida = document.respuestas.opciones[i].id
@@ -119,7 +119,7 @@ class window.VistaPreguntas extends Backbone.View
             $('#puntaje').html('')
             $('#puntaje').append(window.puntaje_total + " pts.")
 
-    checkearespuesta: =>
+    checkearespuesta: ->
         if window.respondida is '1'
             msj.mensajes('0','1','0','0','1','0')
         else

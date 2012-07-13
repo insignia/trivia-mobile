@@ -7,7 +7,7 @@ class window.VistaPuntaje extends Backbone.View
 
     events: 'click a#btn_lista_puntajes': 'lista_puntaje'
     
-    lista_puntaje: =>
+    lista_puntaje: ->
         window.click_lista_puntajes = '1'
         $.parse.get "users", (json) ->
             lista_puntajes_completa = new window.Puntajes
