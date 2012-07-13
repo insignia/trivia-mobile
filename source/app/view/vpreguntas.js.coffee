@@ -79,7 +79,7 @@ class window.VistaPreguntas extends Backbone.View
         window.preg_actual = @.options.posicion_pregunta - 1
         if correcta is resp_elegida
             #FIXME: estos divs se ocultas/muestran en varios lugares, por ahi podría extraerse a un método que reciba un parámetro indicando si se queiren ocultar o desocultar.
-            msj.mensajes('0','1','0','0','1','0')
+            mensajes(1)
             window.id_correcto = collection.at(@.options.posicion_pregunta - 1).get 'respuesta'
             coleccion_opciones = new window.Preguntas
             for j in [0..5]
@@ -105,25 +105,25 @@ class window.VistaPreguntas extends Backbone.View
             if unos is 8 then setTimeout (-> window.location.href = "/#registrar_puntaje"), 250
         else
             window.intento++
-            msj.mensajes('1','0','0','0','1','0')
+            mensajes(2)
             setTimeout ( -> 
-                msj.mensajes('0','0','0','0','1','0')
+                mensajes(0)
                 if window.preg_actual is 7
                     $('#btn_anterior').click()
                     $('#btn_siguiente').click()
                 else
                     $('#btn_siguiente').click()
                     $('#btn_anterior').click()
-                msj.mensajes('0','0','1','1','1','0')
+                mensajes(3)
             ), 2000              
             $('#puntaje').html('')
             $('#puntaje').append(window.puntaje_total + " pts.")
 
     checkearespuesta: ->
         if window.respondida is '1'
-            msj.mensajes('0','1','0','0','1','0')
+            mensajes(1)
         else
-            msj.mensajes('0','0','1','1','1','0')
+            mensajes(3)
             lista = $('#respuestas', @.el)
             lista.empty()
             $("#plantilla_radio").tmpl(window.coleccion_opciones.toJSON()).appendTo(lista)
