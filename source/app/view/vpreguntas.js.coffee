@@ -1,3 +1,6 @@
+#FIXME: Veo que la variable window.arreglo se usa solo en esta clase. ¿ es 
+# realmente necesario que sea una variable en el scope global (window) ?
+
 class window.VistaPreguntas extends Backbone.View
     el: $('#cartel') 
 
@@ -51,6 +54,7 @@ class window.VistaPreguntas extends Backbone.View
                             id: j
                             contenido_opcion: collection.at(i).get nombre
                         window.coleccion_opciones.add opcion
+                #FIXME: la variable cookie me parece que no es necesaria
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i] 
@@ -73,6 +77,7 @@ class window.VistaPreguntas extends Backbone.View
                             id: j
                             contenido_opcion: collection.at(i).get nombre
                         window.coleccion_opciones.add opcion
+                #FIXME: la variable cookie me parece que no es necesaria
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i] 
@@ -96,10 +101,16 @@ class window.VistaPreguntas extends Backbone.View
                         id: j
                         contenido_opcion: collection.at(window.preg_actual).get nombre
                     coleccion_opciones.add opcion
+            #FIXME: la variable cookie me parece que no es necesaria
             cookie = $.cookie('respuestas_cookie')
             window.arreglo = cookie.split(",")
             window.arreglo[window.preg_actual] = '1'
             $.cookie('respuestas_cookie', window.arreglo)
+            #FIXME: los tres if que vienen no me terminan de convencer,
+            # por ahi se podría reemplazar con algo así como:
+            #   window.puntaje_total = window.puntaje_total + incremento(window.intento)
+            # y definir la funcion incremento para devolve el valor que corresponde
+            # segun la cantidad de intentos que se van realizando.
             if window.intento is 1 then window.puntaje_total = window.puntaje_total + 10
             if window.intento is 2 then window.puntaje_total = window.puntaje_total + 5
             if window.intento >= 3 then window.puntaje_total = window.puntaje_total + 1
