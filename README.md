@@ -17,28 +17,24 @@ Para la construcción de esta aplicación se usaron [jquery-mobile][urljmobile],
 
 2) Para instalar todo lo necesario para su funcionamiento, debe estar dentro del directorio trivia-mobile clonado anteriormente y en la consola escribir:
 
-	bundle install 
+  cd trivia-mobile 
+  bundle install 
 
 3) Crear una cuenta en [Parse][urlParse] 
 
 4) Crear una app en Parse con cualquier nombre, luego ir a Dashboard y seleccionar la app creada anteriormente.
 
-5) Hacer una copia del archivo settings.yml.sample y ponerle el nombre de settings.yml
+5) Hacer una copia del archivo settings.yml.sample y con el nombre de settings.yml
 
-**Nota:** El archivo settings.yml.sample se encuentra en trivia-mobile/data.
+  cp data/settings.yml.sample data/settings.yml
 
 6) Copiar los valores que figuran en Application ID y REST API Key de su cuenta de Parse y pegarlos en el archivo settings.yml creado anteriormente en la siguiente parte del código: 
 
 ```javascript
 parse:
-  	app_id: Application ID
-  	rest_api_key: REST API Key
+  	app_id: your-parse-app-id
+  	rest_api_key: your-parse-rest-api-key
 	
-//Su código debe quedar de la siguiente manera pero con sus valores de Application ID y REST API Key. 
-//Ejemplo: 
-//	parse:
-// 		app_id: ayHRkdOEaRIprIoNE47zeWOSMsUGFKSGP7f0bEpZ
-// 		rest_api_key: ziHceqRsL1DHVWI3C0DzvuG28LPh77BvHbtEGYBN
 ```
 Luego guardar los cambios en el archivo.
 
