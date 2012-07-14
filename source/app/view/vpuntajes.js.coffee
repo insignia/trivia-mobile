@@ -11,9 +11,7 @@ class window.VistaPuntaje extends Backbone.View
         window.click_lista_puntajes = '1'
         $.parse.get "users", (json) ->
             lista_puntajes_completa = new window.Puntajes
-            #FIXME: Hace falta realmente asignar una variable results o se puede hacer el each sobre json.results directamente?
             json.results.forEach (user) ->
-                #FIXME: hacen falta realmente las variables temporales name, email y puntaje?
                 item = new window.Puntaje
                     name: user.username
                     email: user.email

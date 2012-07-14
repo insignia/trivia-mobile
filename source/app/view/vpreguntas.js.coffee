@@ -9,6 +9,10 @@ class window.VistaPreguntas extends Backbone.View
         $.parse.get "classes/preguntas_oficiales", (json) ->
             results = json.results
             results.forEach (pregunta)->
+                #FIXME: Si una pregunta es creada siempre a través de los datos 
+                #de una pregunta en JSON, por ahi podría pensarse en un constructor 
+                #específico que procese estos parámetros
+                #(eso encapsularia la lógica donde corresponde)
                 item = new window.Pregunta 
                             contenido: pregunta.contenido
                             respuesta: pregunta.respuesta
@@ -44,9 +48,7 @@ class window.VistaPreguntas extends Backbone.View
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i] 
-                #FIXME: Esta sección debe ser muy similar a la sección de abajo, 
-                #ver si se puede unificar esto y otras cosas similares de estos dos métodos.
-                @.checkearespuesta()
+                @.checkea_respuesta()
         @.options.posicion_pregunta = window.orden_hacia_adelante
 
     anterior: ->
@@ -68,8 +70,8 @@ class window.VistaPreguntas extends Backbone.View
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i] 
-                @.checkearespuesta()
-        @.options.posicion_pregunta = window.orden_hacia_atras               
+                @.checkea_respuesta()
+        @.options.posicion_pregunta = window.orden_hacia_atras
 
     responder: ->
         long = (document.respuestas.opciones.length - 1)
@@ -78,7 +80,6 @@ class window.VistaPreguntas extends Backbone.View
         correcta = collection.at(@.options.posicion_pregunta - 1).get 'respuesta'
         window.preg_actual = @.options.posicion_pregunta - 1
         if correcta is resp_elegida
-            #FIXME: estos divs se ocultas/muestran en varios lugares, por ahi podría extraerse a un método que reciba un parámetro indicando si se queiren ocultar o desocultar.
             mensajes(1)
             window.id_correcto = collection.at(@.options.posicion_pregunta - 1).get 'respuesta'
             coleccion_opciones = new window.Preguntas
@@ -119,7 +120,7 @@ class window.VistaPreguntas extends Backbone.View
             $('#puntaje').html('')
             $('#puntaje').append(window.puntaje_total + " pts.")
 
-    checkearespuesta: ->
+    checkea_respuesta: ->
         if window.respondida is '1'
             mensajes(1)
         else
