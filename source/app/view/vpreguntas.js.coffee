@@ -7,8 +7,7 @@ class window.VistaPreguntas extends Backbone.View
         App.parseInit()
         
         $.parse.get "classes/preguntas_oficiales", (json) ->
-            results = json.results
-            results.forEach (pregunta)->
+            json.results.forEach (pregunta)->
                 #FIXME: Si una pregunta es creada siempre a través de los datos 
                 #de una pregunta en JSON, por ahi podría pensarse en un constructor 
                 #específico que procese estos parámetros
@@ -32,6 +31,13 @@ class window.VistaPreguntas extends Backbone.View
     siguiente: ->
         window.orden_hacia_adelante = @.options.posicion_pregunta
         if window.orden_hacia_adelante < 8 then window.orden_hacia_adelante++
+        #FIXME: Todo el ciclo for son casi iguales en las funciones siguiente
+        # y anterior. Extraer la lógica a un sólo metodo compartido por los dos.
+        # Lo unico que varia es la linea que dice: 
+        #   "if posicion is window.orden_hacia_adelante"
+        # y en la otra funcion dice:
+        #   "if posicion is window.orden_hacia_atras",
+        # es un valor que podría ser pasado como parametro.
         for i in [0..7]
             posicion = collection.at(i).get 'posicion'
             window.respondida = i
