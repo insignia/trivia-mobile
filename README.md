@@ -30,7 +30,7 @@ Para la construcción de esta aplicación se usaron [jquery-mobile][urljmobile],
 
 6) Copiar los valores que figuran en Application ID y REST API Key de su cuenta de Parse y pegarlos en el archivo settings.yml creado anteriormente en la siguiente parte del código: 
 
-```javascript
+```yaml
 parse:
   	app_id: your-parse-app-id
   	rest_api_key: your-parse-rest-api-key
