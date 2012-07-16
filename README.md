@@ -36,7 +36,7 @@ Para la construcción de esta aplicación se usaron [jquery-mobile][urljmobile],
 
 Al hacer esto se creará una tabla con los datos de las preguntas de la app.
 
-6) Copiar los valores que figuran en Application ID y REST API Key de su cuenta de Parse.
+6) Copiar los valores que figuran en ***Application ID*** y ***REST API Key*** de su cuenta de Parse.
 
 7) Hacer una copia del archivo settings.yml.sample y con el nombre de settings.yml. En la consola escribir:
 
