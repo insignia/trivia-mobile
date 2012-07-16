@@ -42,7 +42,7 @@ Al hacer esto se creará una tabla con los datos de las preguntas de la app.
 
 	cp data/settings.yml.sample data/settings.yml
 
-8) Con los valores Application ID y REST API Key de su cuenta de Parse pegarlos en el archivo settings.yml creado anteriormente en la siguiente parte del código: 
+8) Con los valores ***Application ID*** y ***REST API Key*** de su cuenta de Parse pegarlos en el archivo settings.yml creado anteriormente en la siguiente parte del código: 
 
 ```yaml
 parse:
