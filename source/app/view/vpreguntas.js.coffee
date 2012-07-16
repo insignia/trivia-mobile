@@ -6,7 +6,7 @@ class window.VistaPreguntas extends Backbone.View
 
     initialize: ->
         _.bindAll(@, 'siguiente', 'anterior', 'responder')
-        @.options.posicion_pregunta = '0'
+        @options.posicion_pregunta = '0'
         App.parseInit()
         
         $.parse.get "classes/preguntas_oficiales", (json) ->
@@ -32,7 +32,7 @@ class window.VistaPreguntas extends Backbone.View
         'click a#btn_responder': 'responder'
 
     siguiente: ->
-        window.orden_hacia_adelante = @.options.posicion_pregunta
+        window.orden_hacia_adelante = @options.posicion_pregunta
         if window.orden_hacia_adelante < 8 then window.orden_hacia_adelante++
         #FIXME: Todo el ciclo for son casi iguales en las funciones siguiente
         # y anterior. Extraer la lógica a un sólo metodo compartido por los dos.
@@ -58,11 +58,11 @@ class window.VistaPreguntas extends Backbone.View
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i] 
-                @.checkea_respuesta()
-        @.options.posicion_pregunta = window.orden_hacia_adelante
+                @checkea_respuesta()
+        @options.posicion_pregunta = window.orden_hacia_adelante
 
     anterior: ->
-        window.orden_hacia_atras = @.options.posicion_pregunta
+        window.orden_hacia_atras = @options.posicion_pregunta
         if window.orden_hacia_atras > 1 then window.orden_hacia_atras--
         for i in [0..7]
             posicion = collection.at(i).get 'posicion'
@@ -81,18 +81,18 @@ class window.VistaPreguntas extends Backbone.View
                 cookie = $.cookie('respuestas_cookie')
                 window.arreglo = cookie.split(",")
                 window.respondida = window.arreglo[i] 
-                @.checkea_respuesta()
-        @.options.posicion_pregunta = window.orden_hacia_atras
+                @checkea_respuesta()
+        @options.posicion_pregunta = window.orden_hacia_atras
 
     responder: ->
         long = (document.respuestas.opciones.length - 1)
         for i in [0..long]
             if document.respuestas.opciones[i].checked then resp_elegida = document.respuestas.opciones[i].id
-        correcta = collection.at(@.options.posicion_pregunta - 1).get 'respuesta'
-        window.preg_actual = @.options.posicion_pregunta - 1
+        correcta = collection.at(@options.posicion_pregunta - 1).get 'respuesta'
+        window.preg_actual = @options.posicion_pregunta - 1
         if correcta is resp_elegida
             mensajes(1)
-            window.id_correcto = collection.at(@.options.posicion_pregunta - 1).get 'respuesta'
+            window.id_correcto = collection.at(@options.posicion_pregunta - 1).get 'respuesta'
             coleccion_opciones = new window.Preguntas
             for j in [0..5]
                 nombre = "opcion" + j
@@ -142,7 +142,7 @@ class window.VistaPreguntas extends Backbone.View
             mensajes(1)
         else
             mensajes(3)
-            lista = $('#respuestas', @.el)
+            lista = $('#respuestas', @el)
             lista.empty()
             $("#plantilla_radio").tmpl(window.coleccion_opciones.toJSON()).appendTo(lista)
             $('#respuestas').listview('refresh') 

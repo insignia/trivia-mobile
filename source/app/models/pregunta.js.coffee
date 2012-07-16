@@ -3,7 +3,7 @@ class window.Pregunta extends Backbone.Model
         _.bindAll(@, 'remove')
 
      remove: ->
-        @.destroy()
+        @destroy()
 
 class window.Preguntas extends Backbone.Collection
     model: window.Pregunta
