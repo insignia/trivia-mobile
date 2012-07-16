@@ -24,21 +24,7 @@ Para la construcción de esta aplicación se usaron [jquery-mobile][urljmobile],
 
 4) Crear una app en Parse con cualquier nombre, luego ir a Dashboard y seleccionar la app creada anteriormente.
 
-5) Hacer una copia del archivo settings.yml.sample y con el nombre de settings.yml
-
-	cp data/settings.yml.sample data/settings.yml
-
-6) Copiar los valores que figuran en Application ID y REST API Key de su cuenta de Parse y pegarlos en el archivo settings.yml creado anteriormente en la siguiente parte del código: 
-
-```yaml
-parse:
-  	app_id: your-parse-app-id
-  	rest_api_key: your-parse-rest-api-key
-	
-```
-Luego guardar los cambios en el archivo.
-
-7) Ir a Data Browser y elegir la opción Import existing data from a CSV file. En Name of new class poner preguntas_oficiales, seleccionar archivo preguntas_oficiales.txt que se encuentra en la carpeta de trivia-mobile y luego Import. Por último seleccionar los siguientes tipos de datos para cada campo:
+5) Ir a Data Browser y elegir la opción Import existing data from a CSV file. En Name of new class poner preguntas_oficiales, seleccionar archivo preguntas_oficiales.txt que se encuentra en la carpeta de trivia-mobile y luego Import. Por último seleccionar los siguientes tipos de datos para cada campo:
 - **Contenido:** string
 - **Opcion1:** string
 - **Opcion2:** string
@@ -50,13 +36,29 @@ Luego guardar los cambios en el archivo.
 
 Al hacer esto se creará una tabla con los datos de las preguntas de la app.
 
-8) Para iniciar el servidor de [middleman][urlMiddleman] debe estar dentro del directorio trivia-mobile y en la consola escribir:
+6) Copiar los valores que figuran en Application ID y REST API Key de su cuenta de Parse.
+
+7) Hacer una copia del archivo settings.yml.sample y con el nombre de settings.yml. En la consola escribir:
+
+	cp data/settings.yml.sample data/settings.yml
+
+8) Con los valores Application ID y REST API Key de su cuenta de Parse pegarlos en el archivo settings.yml creado anteriormente en la siguiente parte del código: 
+
+```yaml
+parse:
+  	app_id: your-parse-app-id
+  	rest_api_key: your-parse-rest-api-key
+	
+```
+Luego guardar los cambios en el archivo.
+
+9) Para iniciar el servidor de [middleman][urlMiddleman] debe estar dentro del directorio trivia-mobile y en la consola escribir:
 
 	middleman server -p 4567
 
 **Nota:** El número 4567 es el puerto puede utilizar otro número si lo desea.
 
-9) Finalmente ir al navegador web y escribir localhost:4567 para probar la aplicación.
+10) Finalmente ir al navegador web y escribir localhost:4567 para probar la aplicación.
 
 [url]: http://trivia-mobile.herokuapp.com/
 [urlParse]: https://parse.com/
