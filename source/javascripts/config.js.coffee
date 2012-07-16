@@ -4,32 +4,27 @@ window.click_lista_puntajes = '0'
 window.puntaje_total = 0
 window.intento = 1
 
-@mensajes = (opcion) ->
-    switch opcion
-        when 0
-            #Deshabilita todo
-            $('#mensaje_error').hide()
-            $('#mensaje_correcto').hide()
-            $('#div_responder').hide()
-            $('#respuestas').hide()
-        when 1
-            #Habilita mensaje correcto
-            $('#mensaje_error').hide()
-            $('#mensaje_correcto').show()
-            $('#div_responder').hide()
-            $('#respuestas').hide()
-        when 2
-            #Habilita mensaje incorrecto
-            $('#mensaje_error').show()
-            $('#mensaje_correcto').hide()
-            $('#div_responder').hide()
-            $('#respuestas').hide()
-        when 3
-            #Habilita responder y respuesta
-            $('#mensaje_error').hide()
-            $('#mensaje_correcto').hide()
-            $('#div_responder').show()
-            $('#respuestas').show()
+class window.Mensajes
+    @deshabilita_todo: ->
+        $('#mensaje_error').hide()
+        $('#mensaje_correcto').hide()
+        $('#div_responder').hide()
+        $('#respuestas').hide()
+    @habilita_respcorrecta: ->
+        $('#mensaje_error').hide()
+        $('#mensaje_correcto').show()
+        $('#div_responder').hide()
+        $('#respuestas').hide()
+    @habilita_respincorrecta: ->
+        $('#mensaje_error').show()
+        $('#mensaje_correcto').hide()
+        $('#div_responder').hide()
+        $('#respuestas').hide()
+    @habilita_respuestas: ->
+        $('#mensaje_error').hide()
+        $('#mensaje_correcto').hide()
+        $('#div_responder').show()
+        $('#respuestas').show()
 
 $(document).ready ->
     window.location.href = "/#page1"
@@ -48,7 +43,7 @@ $(document).ready ->
     $('#puntaje').append(window.puntaje_total + " pts.")
     $('#header_con_botones').show()
     $('#header_sin_botones').hide()
-    mensajes(0)
+    Mensajes.deshabilita_todo()
     $('#btn_pregunta').click ->
         arreglo_correctas = new Array('0','0','0','0','0','0','0','0')
         $.cookie('respuestas_cookie', arreglo_correctas)

@@ -91,7 +91,7 @@ class window.VistaPreguntas extends Backbone.View
         correcta = collection.at(@options.posicion_pregunta - 1).get 'respuesta'
         window.preg_actual = @options.posicion_pregunta - 1
         if correcta is resp_elegida
-            mensajes(1)
+            Mensajes.habilita_respcorrecta()
             window.id_correcto = collection.at(@options.posicion_pregunta - 1).get 'respuesta'
             coleccion_opciones = new window.Preguntas
             for j in [0..5]
@@ -123,25 +123,23 @@ class window.VistaPreguntas extends Backbone.View
             if unos is 8 then setTimeout (-> window.location.href = "/#registrar_puntaje"), 250
         else
             window.intento++
-            mensajes(2)
+            Mensajes.habilita_respincorrecta()
             setTimeout ( -> 
-                mensajes(0)
                 if window.preg_actual is 7
                     $('#btn_anterior').click()
                     $('#btn_siguiente').click()
                 else
                     $('#btn_siguiente').click()
                     $('#btn_anterior').click()
-                mensajes(3)
+                Mensajes.habilita_respuestas()
             ), 2000              
             $('#puntaje').html('')
             $('#puntaje').append(window.puntaje_total + " pts.")
 
     checkea_respuesta: ->
-        if window.respondida is '1'
-            mensajes(1)
+        if window.respondida is '1' then Mensajes.habilita_respcorrecta()
         else
-            mensajes(3)
+            Mensajes.habilita_respuestas()
             lista = $('#respuestas', @el)
             lista.empty()
             $("#plantilla_radio").tmpl(window.coleccion_opciones.toJSON()).appendTo(lista)
