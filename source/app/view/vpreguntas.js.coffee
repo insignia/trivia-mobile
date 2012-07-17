@@ -41,45 +41,13 @@ class window.VistaPreguntas extends Backbone.View
         # y en la otra funcion dice:
         #   "if posicion is window.orden_hacia_atras",
         # es un valor que podría ser pasado como parametro.
-        for i in [0..7]
-            posicion = collection.at(i).get 'posicion'
-            window.respondida = i
-            if posicion is window.orden_hacia_adelante
-                document.getElementById("contenido").innerHTML = collection.at(i).get 'contenido'
-                window.coleccion_opciones = new window.Preguntas
-                for j in [1..5]
-                    nombre = "opcion" + j
-                    if collection.at(i).get(nombre) isnt 'vacio'
-                        opcion = new window.Pregunta
-                            id: j
-                            contenido_opcion: collection.at(i).get nombre
-                        window.coleccion_opciones.add opcion
-                #FIXME: la variable cookie me parece que no es necesaria
-                arreglo = $.cookie('respuestas_cookie').split(",")
-                window.respondida = arreglo[i] 
-                @checkea_respuesta()
+        @muestra_pregunta_respuestas(window.orden_hacia_adelante)
         @options.posicion_pregunta = window.orden_hacia_adelante
 
     anterior: ->
         window.orden_hacia_atras = @options.posicion_pregunta
         if window.orden_hacia_atras > 1 then window.orden_hacia_atras--
-        for i in [0..7]
-            posicion = collection.at(i).get 'posicion'
-            window.respondida = i
-            if posicion is window.orden_hacia_atras
-                document.getElementById("contenido").innerHTML = collection.at(i).get 'contenido'
-                window.coleccion_opciones = new window.Preguntas
-                for j in [1..5]
-                    nombre = "opcion" + j
-                    if collection.at(i).get(nombre) isnt 'vacio'
-                        opcion = new window.Pregunta
-                            id: j
-                            contenido_opcion: collection.at(i).get nombre
-                        window.coleccion_opciones.add opcion
-                #FIXME: la variable cookie me parece que no es necesaria
-                arreglo = $.cookie('respuestas_cookie').split(",")
-                window.respondida = arreglo[i] 
-                @checkea_respuesta()
+        @muestra_pregunta_respuestas(window.orden_hacia_atras)
         @options.posicion_pregunta = window.orden_hacia_atras
 
     responder: ->
@@ -140,4 +108,23 @@ class window.VistaPreguntas extends Backbone.View
             lista = $('#respuestas', @el)
             lista.empty()
             $("#plantilla_radio").tmpl(window.coleccion_opciones.toJSON()).appendTo(lista)
-            $('#respuestas').listview('refresh') 
+            $('#respuestas').listview('refresh')
+
+    muestra_pregunta_respuestas: (orden) ->
+        for i in [0..7]
+            posicion = collection.at(i).get 'posicion'
+            window.respondida = i
+            if posicion is orden
+                document.getElementById("contenido").innerHTML = collection.at(i).get 'contenido'
+                window.coleccion_opciones = new window.Preguntas
+                for j in [1..5]
+                    nombre = "opcion" + j
+                    if collection.at(i).get(nombre) isnt 'vacio'
+                        opcion = new window.Pregunta
+                            id: j
+                            contenido_opcion: collection.at(i).get nombre
+                        window.coleccion_opciones.add opcion
+                #FIXME: la variable cookie me parece que no es necesaria
+                arreglo = $.cookie('respuestas_cookie').split(",")
+                window.respondida = arreglo[i] 
+                @checkea_respuesta()
