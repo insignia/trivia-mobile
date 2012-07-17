@@ -55,8 +55,7 @@ class window.VistaPreguntas extends Backbone.View
                             contenido_opcion: collection.at(i).get nombre
                         window.coleccion_opciones.add opcion
                 #FIXME: la variable cookie me parece que no es necesaria
-                cookie = $.cookie('respuestas_cookie')
-                window.arreglo = cookie.split(",")
+                window.arreglo = $.cookie('respuestas_cookie').split(",")
                 window.respondida = window.arreglo[i] 
                 @checkea_respuesta()
         @options.posicion_pregunta = window.orden_hacia_adelante
@@ -78,8 +77,7 @@ class window.VistaPreguntas extends Backbone.View
                             contenido_opcion: collection.at(i).get nombre
                         window.coleccion_opciones.add opcion
                 #FIXME: la variable cookie me parece que no es necesaria
-                cookie = $.cookie('respuestas_cookie')
-                window.arreglo = cookie.split(",")
+                window.arreglo = $.cookie('respuestas_cookie').split(",")
                 window.respondida = window.arreglo[i] 
                 @checkea_respuesta()
         @options.posicion_pregunta = window.orden_hacia_atras
@@ -102,8 +100,7 @@ class window.VistaPreguntas extends Backbone.View
                         contenido_opcion: collection.at(window.preg_actual).get nombre
                     coleccion_opciones.add opcion
             #FIXME: la variable cookie me parece que no es necesaria
-            cookie = $.cookie('respuestas_cookie')
-            window.arreglo = cookie.split(",")
+            window.arreglo = $.cookie('respuestas_cookie').split(",")
             window.arreglo[window.preg_actual] = '1'
             $.cookie('respuestas_cookie', window.arreglo)
             #FIXME: los tres if que vienen no me terminan de convencer,
