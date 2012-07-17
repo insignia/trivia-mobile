@@ -55,8 +55,8 @@ class window.VistaPreguntas extends Backbone.View
                             contenido_opcion: collection.at(i).get nombre
                         window.coleccion_opciones.add opcion
                 #FIXME: la variable cookie me parece que no es necesaria
-                window.arreglo = $.cookie('respuestas_cookie').split(",")
-                window.respondida = window.arreglo[i] 
+                arreglo = $.cookie('respuestas_cookie').split(",")
+                window.respondida = arreglo[i] 
                 @checkea_respuesta()
         @options.posicion_pregunta = window.orden_hacia_adelante
 
@@ -77,8 +77,8 @@ class window.VistaPreguntas extends Backbone.View
                             contenido_opcion: collection.at(i).get nombre
                         window.coleccion_opciones.add opcion
                 #FIXME: la variable cookie me parece que no es necesaria
-                window.arreglo = $.cookie('respuestas_cookie').split(",")
-                window.respondida = window.arreglo[i] 
+                arreglo = $.cookie('respuestas_cookie').split(",")
+                window.respondida = arreglo[i] 
                 @checkea_respuesta()
         @options.posicion_pregunta = window.orden_hacia_atras
 
@@ -100,9 +100,9 @@ class window.VistaPreguntas extends Backbone.View
                         contenido_opcion: collection.at(window.preg_actual).get nombre
                     coleccion_opciones.add opcion
             #FIXME: la variable cookie me parece que no es necesaria
-            window.arreglo = $.cookie('respuestas_cookie').split(",")
-            window.arreglo[window.preg_actual] = '1'
-            $.cookie('respuestas_cookie', window.arreglo)
+            arreglo = $.cookie('respuestas_cookie').split(",")
+            arreglo[window.preg_actual] = '1'
+            $.cookie('respuestas_cookie', arreglo)
             #FIXME: los tres if que vienen no me terminan de convencer,
             # por ahi se podría reemplazar con algo así como:
             #   window.puntaje_total = window.puntaje_total + incremento(window.intento)
@@ -116,7 +116,7 @@ class window.VistaPreguntas extends Backbone.View
             $('#puntaje').append(window.puntaje_total + " pts.")
             unos = 0
             for x in [0..7]
-                if window.arreglo[x] is '1' then unos++
+                if arreglo[x] is '1' then unos++
             if unos is 8 then setTimeout (-> window.location.href = "/#registrar_puntaje"), 250
         else
             window.intento++
