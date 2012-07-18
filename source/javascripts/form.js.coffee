@@ -4,6 +4,7 @@ $(document).ready ->
     window.puntaje_total = 0
     window.location.reload()
 
+  #Se puede hacer desde la vista de puntajes
   $('#btn_registrar').click ->
     if $('#user').val() is '' then alert "Debe ingresar un nombre"
     else
@@ -18,17 +19,18 @@ $(document).ready ->
         if json.sessionToken isnt null 
           alert "Datos cargados correctamente"
           $('#btn_lista_puntajes').click()
-          
-  $('#btn_users').click -> 
-    $.parse.get "users", (json) ->
-      results = json.results;
-      results.forEach (user) ->
-        console.log "user: " + user.username
+  
+  #No existe btn_users ni btn carga    
+  #$('#btn_users').click -> 
+  #  $.parse.get "users", (json) ->
+  #    results = json.results;
+  #    results.forEach (user) ->
+  #      console.log "user: " + user.username
 
-  $('#btn_carga').click ->
-    $.parse.get "users", (json) ->
-      results = json.results
-      results.forEach (user) ->
-        if user.id_pregunta is '5' 
-          console.log "cargo la pregunta con id 5"
-          console.log "id: " + user.id_pregunta + " ,contenido: " + pregunta.contenido + ", respuesta: " + pregunta.respuesta
+  #$('#btn_carga').click ->
+  #  $.parse.get "users", (json) ->
+  #    results = json.results
+  #    results.forEach (user) ->
+  #      if user.id_pregunta is '5' 
+  #        console.log "cargo la pregunta con id 5"
+  #        console.log "id: " + user.id_pregunta + " ,contenido: " + pregunta.contenido + ", respuesta: " + pregunta.respuesta
