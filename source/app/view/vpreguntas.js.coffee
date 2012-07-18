@@ -76,9 +76,7 @@ class window.VistaPreguntas extends Backbone.View
             #   window.puntaje_total = window.puntaje_total + incremento(window.intento)
             # y definir la funcion incremento para devolve el valor que corresponde
             # segun la cantidad de intentos que se van realizando.
-            if window.intento is 1 then window.puntaje_total = window.puntaje_total + 10
-            if window.intento is 2 then window.puntaje_total = window.puntaje_total + 5
-            if window.intento >= 3 then window.puntaje_total = window.puntaje_total + 1
+            window.puntaje_total = window.puntaje_total + @incremento(window.intento)
             window.intento = 1
             $('#puntaje').html('')
             $('#puntaje').append(window.puntaje_total + " pts.")
@@ -128,3 +126,13 @@ class window.VistaPreguntas extends Backbone.View
                 arreglo = $.cookie('respuestas_cookie').split(",")
                 window.respondida = arreglo[i] 
                 @checkea_respuesta()
+
+    incremento: (intento) ->
+        switch intento
+            when 1
+                10
+            when 2
+                5
+            else
+                1
+
