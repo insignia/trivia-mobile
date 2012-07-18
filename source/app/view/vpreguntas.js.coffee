@@ -15,15 +15,7 @@ class window.VistaPreguntas extends Backbone.View
                 #de una pregunta en JSON, por ahi podría pensarse en un constructor 
                 #específico que procese estos parámetros
                 #(eso encapsularia la lógica donde corresponde)
-                item = new window.Pregunta 
-                            contenido: pregunta.contenido
-                            respuesta: pregunta.respuesta
-                            posicion: pregunta.posicion
-                            opcion1: pregunta.opcion1
-                            opcion2: pregunta.opcion2
-                            opcion3: pregunta.opcion3
-                            opcion4: pregunta.opcion4
-                            opcion5: pregunta.opcion5 
+                item = new window.Pregunta(pregunta)
                 collection.add item
 
     events: 
