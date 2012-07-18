@@ -73,3 +73,7 @@ $(document).ready ->
             $('#lista_puntos').listview('refresh')
             click_lista_puntajes = '0'
         $("#loading").hide()
+    $('#btn_terminar').click ->
+        $.cookie 'respuestas_cookie', null
+        window.puntaje_total = 0
+        window.location.reload()
