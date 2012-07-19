@@ -7,10 +7,9 @@
 		<%= stylesheet_link_tag "jquery.mobile.min" %>
 		<%= stylesheet_link_tag "azul_verde_web", :media => "screen and (min-device-width: 1600px)" %>
 		<%= stylesheet_link_tag "azul_verde", :media => "screen and (max-device-width: 1000px)" %>    	
-    	<%= javascript_include_tag "jquery-1.7.1.min", "jquery.mobile.min" , "jquery.tmpl", "cookie.jquery", "check","json2", "jquery.parse", "config" %>
+    	<%= javascript_include_tag "jquery-1.7.1.min", "jquery.mobile.min" , "jquery.tmpl", "cookie.jquery", "json2", "jquery.parse", "config" %>
 		<%= partial "templates" %>
   </head>
-  
   <body>
 		<%= yield %>
   </body>
