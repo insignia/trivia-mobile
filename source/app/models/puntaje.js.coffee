@@ -1,10 +1,9 @@
 class window.Puntaje extends Backbone.Model
-     #initialize: (user) ->
-     initialize: ->
+     initialize: (user) ->
         _.bindAll(@, 'remove')
-        #@name = user.username
-        #@email = user.email
-        #@puntaje = user.puntaje
+        @name = user.username
+        @email = user.email
+        @puntaje = user.puntaje
      
      remove: ->
         @destroy()

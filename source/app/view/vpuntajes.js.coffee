@@ -8,26 +8,17 @@ class window.VistaPuntaje extends Backbone.View
     events: 'click a#btn_lista_puntajes': 'lista_puntaje', 'click a#btn_registrar': 'registrar'
     
     lista_puntaje: ->
-        #trae toda la lista de puntajes y solo muestra 10
-        #se podria traer solo los 10 puntajes
         window.click_lista_puntajes = '1'
         $.parse.get "users", (json) ->
             lista_puntajes_completa = new window.Puntajes
             json.results.forEach (user) ->
-                item = new window.Puntaje
-                #item = new window.Puntaje(user)
-                    name: user.username
-                    email: user.email
-                    puntaje: user.puntaje
+                item = new window.Puntaje(user)
                 lista_puntajes_completa.add item
             window.lista_puntajes = new window.Puntajes
             total = 0
             _.each(lista_puntajes_completa.models, (a) ->
-                if total < 10 
-                    punto = new window.Puntaje
-                        name: a.attributes.name
-                        email: a.attributes.email
-                        puntaje: a.attributes.puntaje
+                if total < 10
+                    punto = new window.Puntaje(a.attributes)
                     window.lista_puntajes.add punto
                     total++)
 
