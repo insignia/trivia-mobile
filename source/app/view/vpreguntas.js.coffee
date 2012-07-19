@@ -55,18 +55,13 @@ class window.VistaPreguntas extends Backbone.View
             # por qué está hecho así.
             # En el otro extremo del if se hace lo mismo, no debería estar fuera del if
             # una sola vez? (En realidad en esta parte del if están "casi al final")
-            $('#puntaje').html('')
-            $('#puntaje').append(window.puntaje_total + " pts.")
             #FIXME: Las siguientes lineas, verifican que todos los elementos del array
             # sean igual a uno, y cuando lo sea, ejecutan el setTimeout().
             # La librería underscore tiene una función para verificar que todos los 
             # elementos de una collection o array cumplan con una condición, se llama all()
             # http://underscorejs.org/#all
             # Eso haría mucho más facil las lineas siguientes.
-            unos = 0
-            for x in [0..7]
-                if arreglo[x] is '1' then unos++
-            if unos is 8 then setTimeout (-> window.location.href = "/#registrar_puntaje"), 250
+            if _.all(arreglo, (x) -> (x == '1')) then setTimeout (-> window.location.href = "/#registrar_puntaje"), 250
         else
             window.intento++
             Mensajes.habilita_respincorrecta()
@@ -79,8 +74,7 @@ class window.VistaPreguntas extends Backbone.View
                     $('#btn_anterior').click()
                 Mensajes.habilita_respuestas()
             ), 2000              
-            $('#puntaje').html('')
-            $('#puntaje').append(window.puntaje_total + " pts.")
+        $('#puntaje').html(window.puntaje_total + " pts.")
 
     checkea_respuesta: ->
         if window.respondida is '1' then Mensajes.habilita_respcorrecta()
