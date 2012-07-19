@@ -5,7 +5,9 @@ class window.VistaPuntaje extends Backbone.View
         _.bindAll(@, 'lista_puntaje')
         App.parseInit()
 
-    events: 'click a#btn_lista_puntajes': 'lista_puntaje', 'click a#btn_registrar': 'registrar'
+    events: 
+        'click a#btn_lista_puntajes': 'lista_puntaje'
+        'click a#btn_registrar': 'registrar'
     
     lista_puntaje: ->
         window.click_lista_puntajes = '1'
