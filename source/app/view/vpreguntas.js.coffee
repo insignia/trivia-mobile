@@ -1,6 +1,3 @@
-#FIXME: Veo que la variable window.arreglo se usa solo en esta clase. ¿ es 
-# realmente necesario que sea una variable en el scope global (window) ?
-
 class window.VistaPreguntas extends Backbone.View
     el: $('#cartel') 
 
@@ -11,10 +8,6 @@ class window.VistaPreguntas extends Backbone.View
         
         $.parse.get "classes/preguntas_oficiales", (json) ->
             json.results.forEach (pregunta)->
-                #FIXME: Si una pregunta es creada siempre a través de los datos 
-                #de una pregunta en JSON, por ahi podría pensarse en un constructor 
-                #específico que procese estos parámetros
-                #(eso encapsularia la lógica donde corresponde)
                 item = new window.Pregunta(pregunta)
                 collection.add item
 
@@ -26,13 +19,6 @@ class window.VistaPreguntas extends Backbone.View
     siguiente: ->
         window.orden_hacia_adelante = @options.posicion_pregunta
         if window.orden_hacia_adelante < 8 then window.orden_hacia_adelante++
-        #FIXME: Todo el ciclo for son casi iguales en las funciones siguiente
-        # y anterior. Extraer la lógica a un sólo metodo compartido por los dos.
-        # Lo unico que varia es la linea que dice: 
-        #   "if posicion is window.orden_hacia_adelante"
-        # y en la otra funcion dice:
-        #   "if posicion is window.orden_hacia_atras",
-        # es un valor que podría ser pasado como parametro.
         @muestra_pregunta_respuestas(window.orden_hacia_adelante)
         @options.posicion_pregunta = window.orden_hacia_adelante
 
@@ -59,19 +45,24 @@ class window.VistaPreguntas extends Backbone.View
                         id: j
                         contenido_opcion: collection.at(window.preg_actual).get nombre
                     coleccion_opciones.add opcion
-            #FIXME: la variable cookie me parece que no es necesaria
             arreglo = $.cookie('respuestas_cookie').split(",")
             arreglo[window.preg_actual] = '1'
             $.cookie('respuestas_cookie', arreglo)
-            #FIXME: los tres if que vienen no me terminan de convencer,
-            # por ahi se podría reemplazar con algo así como:
-            #   window.puntaje_total = window.puntaje_total + incremento(window.intento)
-            # y definir la funcion incremento para devolve el valor que corresponde
-            # segun la cantidad de intentos que se van realizando.
             window.puntaje_total = window.puntaje_total + @incremento(window.intento)
             window.intento = 1
+            #FIXME: Aquí en la primera linea se resetea el html, despues se "agrega"
+            # No se podría hacer todo directamente en una asignación? Consultar con JuanR
+            # por qué está hecho así.
+            # En el otro extremo del if se hace lo mismo, no debería estar fuera del if
+            # una sola vez? (En realidad en esta parte del if están "casi al final")
             $('#puntaje').html('')
             $('#puntaje').append(window.puntaje_total + " pts.")
+            #FIXME: Las siguientes lineas, verifican que todos los elementos del array
+            # sean igual a uno, y cuando lo sea, ejecutan el setTimeout().
+            # La librería underscore tiene una función para verificar que todos los 
+            # elementos de una collection o array cumplan con una condición, se llama all()
+            # http://underscorejs.org/#all
+            # Eso haría mucho más facil las lineas siguientes.
             unos = 0
             for x in [0..7]
                 if arreglo[x] is '1' then unos++
@@ -114,7 +105,6 @@ class window.VistaPreguntas extends Backbone.View
                             id: j
                             contenido_opcion: collection.at(i).get nombre
                         window.coleccion_opciones.add opcion
-                #FIXME: la variable cookie me parece que no es necesaria
                 arreglo = $.cookie('respuestas_cookie').split(",")
                 window.respondida = arreglo[i] 
                 @checkea_respuesta()

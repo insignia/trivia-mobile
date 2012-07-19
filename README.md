@@ -36,7 +36,7 @@ Para la construcción de esta aplicación se usaron [jquery-mobile][urljmobile],
 
 Al hacer esto se creará una tabla con los datos de las preguntas de la app.
 
-6) Copiar los valores que figuran en ***Application ID*** y ***REST API Key*** de su cuenta de Parse.
+6) Tomar nota de los valores que figuran en ***Application ID*** y ***REST API Key*** de su cuenta de Parse.
 
 7) Hacer una copia del archivo settings.yml.sample y con el nombre de settings.yml. En la consola escribir:
 
@@ -54,11 +54,9 @@ Luego guardar los cambios en el archivo.
 
 9) Para iniciar el servidor de [middleman][urlMiddleman] debe estar dentro del directorio trivia-mobile y en la consola escribir:
 
-	middleman server -p 4567
+	middleman server
 
-**Nota:** El número 4567 es el puerto puede utilizar otro número si lo desea.
-
-10) Finalmente ir al navegador web y escribir localhost:4567 para probar la aplicación.
+10) Finalmente ir al navegador web y acceder http://localhost:4567 para probar la aplicación.
 
 [url]: http://trivia-mobile.herokuapp.com/
 [urlParse]: https://parse.com/
