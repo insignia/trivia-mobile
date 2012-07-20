@@ -58,8 +58,7 @@ $(document).ready ->
     $('#btn_pregunta').click ->
         #FIXME: No se podría cambiar las dos lineas que siguen por algo así directamente:
         # $.cookie('respuestas_cookie', ['0','0','0','0','0','0','0','0'])
-        arreglo_correctas = new Array('0','0','0','0','0','0','0','0')
-        $.cookie('respuestas_cookie', arreglo_correctas)
+        $.cookie('respuestas_cookie', ['0','0','0','0','0','0','0','0'])
         click_en_boton_pregunta = '1'
         vista = new window.VistaPreguntas
     $("#loading").ajaxStart ->
