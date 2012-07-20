@@ -50,18 +50,8 @@ class window.VistaPreguntas extends Backbone.View
             $.cookie('respuestas_cookie', arreglo)
             window.puntaje_total = window.puntaje_total + @incremento(window.intento)
             window.intento = 1
-            #FIXME: Aquí en la primera linea se resetea el html, despues se "agrega"
-            # No se podría hacer todo directamente en una asignación? Consultar con JuanR
-            # por qué está hecho así.
-            # En el otro extremo del if se hace lo mismo, no debería estar fuera del if
-            # una sola vez? (En realidad en esta parte del if están "casi al final")
-            #FIXME: Las siguientes lineas, verifican que todos los elementos del array
-            # sean igual a uno, y cuando lo sea, ejecutan el setTimeout().
-            # La librería underscore tiene una función para verificar que todos los 
-            # elementos de una collection o array cumplan con una condición, se llama all()
-            # http://underscorejs.org/#all
-            # Eso haría mucho más facil las lineas siguientes.
-            if _.all(arreglo, (x) -> (x == '1')) then setTimeout (-> window.location.href = "/#registrar_puntaje"), 250
+            if _.all(arreglo, (x) -> (x == '1')) 
+                setTimeout (-> window.location.href = "/#registrar_puntaje"), 250
         else
             window.intento++
             Mensajes.habilita_respincorrecta()

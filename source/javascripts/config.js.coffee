@@ -1,3 +1,7 @@
+#FIXME: Este archivo debería estar dentro de App. Deberíamos dejar la carpeta
+# javascript para los archivos de librerías de terceros que no vamos a
+# modificar para nuestro proyecto.
+
 click_en_boton_pregunta = '0'
 click_en_boton_registrar = '0'
 window.click_lista_puntajes = '0'
@@ -39,12 +43,19 @@ $(document).ready ->
             maxWidth: 400,
             maxHeight: 150})
     window.puntaje_total = 0
+    #FIXME: Aquí se está haciendo para la asignacion del puntaje.
+    # Reemplazar el html() + append() por solo un append.
+    # Ya son tres lugares donde se hace lo mismo, podría
+    # crearse una función para actualizar el puntaje en pantalla
+    # que haga esto.
     $('#puntaje').html('')
     $('#puntaje').append(window.puntaje_total + " pts.")
     $('#header_con_botones').show()
     $('#header_sin_botones').hide()
     Mensajes.deshabilita_todo()
     $('#btn_pregunta').click ->
+        #FIXME: No se podría cambiar las dos lineas que siguen por algo así directamente:
+        # $.cookie('respuestas_cookie', ['0','0','0','0','0','0','0','0'])
         arreglo_correctas = new Array('0','0','0','0','0','0','0','0')
         $.cookie('respuestas_cookie', arreglo_correctas)
         click_en_boton_pregunta = '1'
@@ -61,12 +72,14 @@ $(document).ready ->
             $('#user').val('')
             $('#email').val('')
             window.puntaje_total = 0
+            #FIXME: Me parece que la variable lista no es necesaria
             lista = $('#lista_puntos')
             lista.empty()
             $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo(lista)
             $('#lista_puntos').listview('refresh')
             window.location.href = "/#lista_puntajes"
         if window.click_lista_puntajes is '1'
+            #FIXME: Me parece que la variable lista no es necesaria
             lista = $('#lista_puntos')
             lista.empty()
             $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo(lista)
