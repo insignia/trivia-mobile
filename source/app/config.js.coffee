@@ -30,6 +30,9 @@ class window.Mensajes
         $('#div_responder').show()
         $('#respuestas').show()
 
+@muestra_puntaje = ->
+    $('#puntaje').html(window.puntaje_total + " pts.")
+
 $(document).ready ->
     window.location.href = "/#page1"
     windowWidth = $(window).width()
@@ -48,7 +51,7 @@ $(document).ready ->
     # Ya son tres lugares donde se hace lo mismo, podría
     # crearse una función para actualizar el puntaje en pantalla
     # que haga esto.
-    $('#puntaje').html(window.puntaje_total + " pts.")
+    muestra_puntaje()
     $('#header_con_botones').show()
     $('#header_sin_botones').hide()
     Mensajes.deshabilita_todo()

@@ -64,7 +64,7 @@ class window.VistaPreguntas extends Backbone.View
                     $('#btn_anterior').click()
                 Mensajes.habilita_respuestas()
             ), 2000              
-        $('#puntaje').html(window.puntaje_total + " pts.")
+        muestra_puntaje()
 
     checkea_respuesta: ->
         if window.respondida is '1' then Mensajes.habilita_respcorrecta()
