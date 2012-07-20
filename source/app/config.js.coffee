@@ -48,8 +48,7 @@ $(document).ready ->
     # Ya son tres lugares donde se hace lo mismo, podría
     # crearse una función para actualizar el puntaje en pantalla
     # que haga esto.
-    $('#puntaje').html('')
-    $('#puntaje').append(window.puntaje_total + " pts.")
+    $('#puntaje').html(window.puntaje_total + " pts.")
     $('#header_con_botones').show()
     $('#header_sin_botones').hide()
     Mensajes.deshabilita_todo()
@@ -73,16 +72,13 @@ $(document).ready ->
             $('#email').val('')
             window.puntaje_total = 0
             #FIXME: Me parece que la variable lista no es necesaria
-            lista = $('#lista_puntos')
-            lista.empty()
-            $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo(lista)
+            $('#lista_puntos').empty()
+            $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo($('#lista_puntos'))
             $('#lista_puntos').listview('refresh')
             window.location.href = "/#lista_puntajes"
         if window.click_lista_puntajes is '1'
-            #FIXME: Me parece que la variable lista no es necesaria
-            lista = $('#lista_puntos')
-            lista.empty()
-            $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo(lista)
+            $('#lista_puntos').empty()
+            $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo($('#lista_puntos'))
             $('#lista_puntos').listview('refresh')
             click_lista_puntajes = '0'
         $("#loading").hide()
