@@ -33,6 +33,11 @@ class window.Mensajes
 @muestra_puntaje = ->
     $('#puntaje').html(window.puntaje_total + " pts.")
 
+@muestra_lista_puntajes = ->
+    $('#lista_puntos').empty()
+    $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo($('#lista_puntos'))
+    $('#lista_puntos').listview('refresh')
+
 $(document).ready ->
     window.location.href = "/#page1"
     windowWidth = $(window).width()
@@ -58,7 +63,7 @@ $(document).ready ->
     $('#btn_pregunta').click ->
         #FIXME: No se podría cambiar las dos lineas que siguen por algo así directamente:
         # $.cookie('respuestas_cookie', ['0','0','0','0','0','0','0','0'])
-        $.cookie('respuestas_cookie', ['0','0','0','0','0','0','0','0'])
+        $.cookie 'respuestas_cookie', ['0','0','0','0','0','0','0','0']
         click_en_boton_pregunta = '1'
         vista = new window.VistaPreguntas
     $("#loading").ajaxStart ->
@@ -74,14 +79,10 @@ $(document).ready ->
             $('#email').val('')
             window.puntaje_total = 0
             #FIXME: Me parece que la variable lista no es necesaria
-            $('#lista_puntos').empty()
-            $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo($('#lista_puntos'))
-            $('#lista_puntos').listview('refresh')
+            muestra_lista_puntajes()
             window.location.href = "/#lista_puntajes"
         if window.click_lista_puntajes is '1'
-            $('#lista_puntos').empty()
-            $("#plantilla_lista_puntaje").tmpl(window.lista_puntajes.toJSON()).appendTo($('#lista_puntos'))
-            $('#lista_puntos').listview('refresh')
+            muestra_lista_puntajes()
             click_lista_puntajes = '0'
         $("#loading").hide()
     $('#btn_terminar').click ->
