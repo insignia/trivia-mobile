@@ -8,7 +8,7 @@ Para la construcción de esta aplicación se usaron [jquery-mobile][urljmobile],
 
 - **Debe tener instalado ruby 1.8.7 y git**
 
-Puede ver una version demo de [Trivia Mobile][url-trivia-mobile]
+Puede ver una version demo de [Trivia Mobile][url]
 
 
 ### Pasos para poner en funcionamiento la app trivia-mobile:
